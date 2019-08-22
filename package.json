@@ -1,13 +1,13 @@
 {
   "name": "5050",
   "version": "2.0.1",
-  "description": "Get started with ES2015, React and Redux. Including Webpack, ESLint, react-router, fetch ...",
+  "description": "5050Labs DApp - built on Peerplays",
   "scripts": {
     "start-dev": "SET NODE_ENV=development&&SET NODE_CONFIG=dev&&webpack-dev-server --config webpack/webpack.config.js",
     "start-stage": "SET NODE_ENV=development&&SET NODE_CONFIG=stage&&webpack-dev-server --config webpack/webpack.config.js",
     "start-dev-bash": "NODE_ENV=development NODE_CONFIG=dev webpack-dev-server --config webpack/webpack.config.js",
     "start-stage-bash": "NODE_ENV=development NODE_CONFIG=stage webpack-dev-server --config webpack/webpack.config.js",
-    "build-dev": "SET NODE_ENV=production&&SET NODE_CONFIG=dev&&webpack --config webpack/webpack.config.js",
+    "build-dev": "SET NODE_ENV=development&&SET NODE_CONFIG=dev&&webpack --config webpack/webpack.config.js",
     "build-stage": "SET NODE_ENV=production&&SET NODE_CONFIG=stage&&webpack --config webpack/webpack.config.js",
     "build-dev-server": "NODE_ENV=production NODE_CONFIG=dev webpack --config webpack/webpack.config.js",
     "build-stage-server": "NODE_ENV=production NODE_CONFIG=stage webpack --config webpack/webpack.config.js",
