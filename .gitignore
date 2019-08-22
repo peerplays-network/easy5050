@@ -1,1 +1,11 @@
 node_modules/
+dist/main.322d49a53f21c6a650c8.js.map
+dist/main.322d49a53f21c6a650c8.js
+dist/index.html
+*.woff
+*.ttf
+*.eot
+*.png
+*.svg
+*.css
+*.map
