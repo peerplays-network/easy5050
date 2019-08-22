@@ -7,6 +7,7 @@
 4. Configure `config.dev.json`
 
 
-##  Starting the dev server
+##  Build and Launch
 
-1.  `npm run-script start-dev-bash` or `npm run-script start-dev` for Windows.
+1.  The app can be built with `npm run-script build`, or `npm run-script build-dev` on Windows.
+2.  Once built, the app can be started with `npm start`, which will serve the application on port 80.
