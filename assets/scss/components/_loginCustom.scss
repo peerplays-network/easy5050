@@ -1,0 +1,542 @@
+//login variables
+$inXPad:				150px;
+$field-height: 			52px;
+$btn-height: 			46px;
+
+$gray1:					#464f58;
+$gray3:					#cacaca;
+$gray5:		 			#aeaeae;
+$gray-color2: 			#e1e1e1;
+$dark:		 			#17191a;
+$green3:				#13d4b7;
+$faded-color:			#818b95;
+$light-blue: 			#33b7ef;
+$new-blue15: 			#2e78e6;
+$new-blue16: 			#1819d2;
+$red:  					#f45c63;
+$clear-color2:			#fff;
+
+
+$h1-color:				$dark;
+$text-color: 			$gray1;
+$mark-color:			$green3;
+$color-second:			$light-blue;
+
+$field-color:   		$text-color;
+$field-bd-color: 		$faded-color;
+$field-icon-color: 		$faded-color;
+$field2-bd-color: 		$gray3;
+$color-add:				$light-blue;
+$text-color-bg:         $clear-color2;
+
+.page__login{
+	font-size: 16px;
+	line-height: 1.25;
+
+	.out{
+		height: 100%;
+	}
+	.wrapper {
+		background: radial-gradient(circle, #2660ca, #2c3370);
+	}
+	.box{
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	.logo{
+		float: left;
+		width: 182px;
+		height: 72px;
+		line-height: 55px;
+		text-align: center;
+		margin: 0;
+		@include transition();
+		img{
+			display: block;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+		}
+		&-lg{
+			display: block;
+			margin: 60px auto 6px;
+			float: none;
+			width: 117px;
+			height: 150px;
+		}
+		&:hover{opacity: .6;}
+		&__box{
+			overflow: hidden;
+		}
+	}
+	.h1 {
+		text-align: center;
+		padding: 15px 10px;
+		margin: 0 0 30px;
+		font-size: 22px;
+		text-transform: uppercase;
+		font-weight: 500;
+		color: #17191a;
+	}
+}
+.dialog-login{
+	background: #fff;
+	font-size: 16px;
+	line-height: 1.25;
+	@include border-radius(10px);
+	.mark2 {
+		color: $light-blue;
+	}
+	.fieldPic {
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		bottom: 1px;
+		margin: auto;
+		width: 55px;
+		text-align: center;
+		line-height: 52px;
+	}
+	.form {
+		padding: 0 75px 30px;
+	}
+	.row{
+		position: relative;
+		display: block;
+		margin-bottom: 20px;
+		&:first-of-type:last-of-type{
+			margin-bottom: 0;
+		}
+		&:last-of-type{
+			margin-bottom: 0;
+		}
+	}
+	.field {
+		border: 1px solid $field-bd-color;
+		font-size: 18px;
+		font-weight: 400;
+		color: $field-color;
+		height: $field-height;
+		background: $clear-color2;
+		width: 100%;
+		padding-left: 15px;
+		vertical-align: top;
+		text-decoration: none;
+		outline: none;
+		@include border-radius(5px);
+		@include plhl-color(#babdbf);
+		@include transition(all .15s ease);
+		
+		&[disabled] {
+			background: #9a9eab;
+			color: rgba($field-color, .5);
+			& ~ .btn .calendarIcon {
+				color: rgba($field-color, .5);
+			}
+		}
+		&[readonly] {
+			color: $text-color;
+		}
+		&:focus {
+			border-color: $mark-color !important;
+			& ~ .fieldPic .fieldIcon {
+				color: $mark-color;
+			}
+		}
+		
+		&-oneLine {
+			@include ellipsis;
+		}
+		&-pic {
+			padding-left: 65px;
+		}
+		&-copy {
+			padding-right: 80px;
+		}
+		
+		&Icon{
+			color: $field-icon-color;
+			font-size: 26px;
+			vertical-align: middle;
+			@include transition(all .15s ease);
+		}
+		&-red{
+			color: $red!important;
+		}
+	}
+	.btn{
+		margin: auto;
+		text-align: center;
+		background: #e1e1e1;
+		border: 2px solid transparent;
+		vertical-align: top;
+		color: $clear-color2;
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		white-space: nowrap;
+		@include border-radius(5px);
+		@include transition(background .2s ease);
+		&[disabled]{
+			opacity: .5!important;
+			cursor: default!important;
+			.btnText{
+				padding-top: 0;
+			}
+		}
+		
+		&Text{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		&:active{
+			.btnText{
+				padding-top: 2px;
+			}
+		}
+		& + &{
+			margin-left: 15px;
+		}
+		
+		&-color7{
+			background: $new-blue15;
+			&[disabled]{
+				background: $new-blue15!important;
+				border-color: transparent!important;
+			}
+			&:hover{
+				background: rgba($new-blue15, .8);
+			}
+			&:active{
+				background: darken($new-blue15, 10%);
+				border-color: darken($new-blue15, 10%);
+				
+			}
+		}
+		&-color8{
+			background: $new-blue16;
+			&[disabled]{
+				background: $new-blue16!important;
+				border-color: transparent!important;
+			}
+			&:hover{
+				background: rgba($new-blue16, .8);
+			}
+			&:active{
+				background: darken($new-blue16, 10%);
+				border-color: darken($new-blue16, 10%);
+				
+			}
+		}
+		&-color9{
+			background: $gray5;
+			&[disabled]{
+				background: $gray5!important;
+				border-color: transparent!important;
+			}
+			&:hover{
+				background: rgba($gray5, .8);
+			}
+			&:active{
+				background: darken($gray5, 10%);
+				border-color: darken($gray5, 10%);
+				
+			}
+		}
+		
+		&-fsz-18{
+			font-size: 18px;
+		}
+		
+		&-copy{
+			@extend .btn-color9;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			height: $field-height;
+			min-width: 80px!important;
+			padding: 0;
+			@include border-radius(0 5px 5px 0);
+		}
+		&-sbm{
+			@extend .btn-color7;
+			min-width: 210px;
+			padding: 0;
+			&-lg{
+				min-width: 280px;
+			}
+		}
+		&-sign{
+			@extend .btn-color8;
+			min-width: 210px;
+			padding: 0;
+		}
+	}
+	
+	.loader {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 9;
+		overflow: hidden;
+		
+		width: 100%;
+		text-align: center;
+		&:after{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			
+			content: '';
+			display: block;
+			width: 49px;
+			height: 49px;
+			@include border-radius(50%);
+			border: 3px solid $color-add;
+			border-left-color: transparent;
+			border-right-color: transparent;
+			@include animation( cssload-spin 1000ms infinite linear);
+		}
+		&-color-brand:after{
+			border-color: $color-add transparent $color-add transparent;
+		}
+		&-white:after{
+			border-color: $clear-color2 transparent $clear-color2 transparent;
+		}
+		&-l:after {
+			width: 59px;
+			height: 59px;
+		}
+		&-m:after {
+			width: 49px;
+			height: 49px;
+		}
+		&-s:after {
+			width: 39px;
+			height: 39px;
+		}
+		&-xs:after {
+			width: 29px;
+			height: 29px;
+		}
+		&-xxs:after {
+			width: 19px;
+			height: 19px;
+		}
+		&-xxxs:after {
+			width: 15px;
+			height: 15px;
+		}
+		
+		&-bg{
+			&-white{
+				&:before{
+					position: absolute;
+					content: '';
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: rgba(255,255,255,.3);
+				}
+			}
+			&-gray{
+				&:before{
+					position: absolute;
+					content: '';
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background:  rgba(0,0,0,.6);
+				}
+			}
+		}
+		&-relative{
+			position: relative;
+			margin: 5px 18px;
+			z-index: 0;
+		}
+		
+		&Icon{
+			font-size: 20px;
+			color: $clear-color2;
+			vertical-align: middle;
+			padding-right: 6px;
+			& +.btnText{
+				padding-right: 28px;
+			}
+		}
+		
+	}
+	.btn-loader{
+		position: relative;
+		color: transparent!important;
+		
+	}
+	
+	.customCheck__label{
+		cursor: pointer;
+		display: block;
+		margin: 0;
+		@include user-sel-n;
+		&Relative{
+			display: inline-block;
+			position: relative;
+			font-size: 0;
+			line-height: 0;
+			vertical-align: middle;
+			float: left;
+			margin-top: 2px;
+		}
+		&Pseudo{
+			display: block;
+			margin-left: 40px;
+			font-size: 20px;
+			font-weight: 500;
+			padding-top: 3px;
+			//color: $text-color-bg;
+			color: rgba($text-color-bg, .6);
+		}
+	}
+	.customCheck__check{
+		opacity: 0;
+		visibility: hidden;
+		height: 27px;
+		width: 27px;
+		&:checked + .customCheck__checkPseudo{
+			background: $color-second;
+			border-color: $color-second;
+		}
+		&:checked + .customCheck__checkPseudo:before{
+			font-family: icomoon, sans-serif;
+			content: "\e901";
+			line-height: 1;
+		}
+		&Pseudo{
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 27px;
+			height: 27px;
+			background: #fff;
+			border: 2px solid $color-second;
+			@include border-radius(2px);
+			-webkit-transition: background .2s ease, border-color .2s ease;
+			transition: background .2s ease, border-color .2s ease;
+			&:before{
+				position: absolute;
+				content: none;
+				font-size: 7px;
+				top: 50%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				margin: -4px 0 0 0;
+				color: $clear-color2;
+			}
+		}
+	}
+	.customCheck__row{
+		@include clearfix;
+		margin-bottom: 15px;
+	}
+	.checked{
+		.customCheck__labelPseudo{
+			color: $text-color-bg;
+		}
+	}
+	.c-black{
+		.customCheck__labelPseudo{color: #464f58;}
+		&.checked{
+			.customCheck__labelPseudo{color: #464f58;}
+		}
+	}
+	
+	.error{
+		border: 1px solid $red;
+		&__hint{
+			color: $red;
+			font-size: 12px;
+			line-height: 1;
+			font-weight: 100;
+			font-style: italic;
+			margin-top: 0.5em;
+			&.abs{
+				position: absolute;
+				left: 0;
+				bottom: -15px;
+			}
+		}
+	}
+	
+	
+	.loginCreate__btn{
+		width: 240px;
+	}
+	.loginCreate__copy {
+		background: #818b95;
+	}
+	
+}
+
+
+@keyframes cssload-spin {
+	100%{
+		transform: rotate(360deg);
+	}
+}
+@-o-keyframes cssload-spin {
+	100%{
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-ms-keyframes cssload-spin {
+	100%{
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes cssload-spin {
+	100%{
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-moz-keyframes cssload-spin {
+	100%{
+		-moz-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+.page__login{
+	*{
+		font-family: "Roboto", sans-serif;
+	}
+	.logo{
+		padding: 0;
+	}
+	.h2{
+		padding-bottom: 10px;
+	}
+	.field{
+		letter-spacing: 0;
+	}
+}
+
+.fa, .far, .fas {
+	font-family: Font Awesome\ 5 Free !important;
+}

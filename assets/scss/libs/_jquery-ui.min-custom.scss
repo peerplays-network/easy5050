@@ -1,0 +1,69 @@
+.ui-datepicker{
+	&.ui-widget.ui-widget-content{
+		border: 2px solid $gray;
+		background: $dark2;
+		margin-top: 5px;
+		font-family: $ff-main;
+	}
+	th{
+		font-weight: 400;
+	}
+	.ui-datepicker-header{
+		background: $gray;
+		font-weight: 400;
+	}
+	
+	.ui-state-default,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default,
+	.ui-button,
+	html .ui-button.ui-state-disabled:hover,
+	html .ui-button.ui-state-disabled:active{
+		border: none;
+		background: rgba($gray, .5);
+		font-weight: 400;
+	}
+	.ui-state-hover,
+	.ui-widget-content .ui-state-hover,
+	.ui-widget-header .ui-state-hover,
+	.ui-state-focus,
+	.ui-widget-content .ui-state-focus,
+	.ui-widget-header .ui-state-focus,
+	.ui-button:hover, .ui-button:focus{
+		background: rgba($prime, .5);
+		border: none;
+		font-weight: 400;
+	}
+	.ui-state-highlight,
+	.ui-widget-content .ui-state-highlight,
+	.ui-widget-header .ui-state-highlight{
+		color: rgba($prime, 1);
+	}
+	.ui-datepicker-next,
+	.ui-datepicker-prev{
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		&:before{
+			font-family: 'icomoon' !important;
+			font-size: 14px;
+			color: rgba($text-color, .5);
+		}
+	}
+	.ui-datepicker-next{
+		right: 2px;
+		&:before {
+			content: "\e904";
+		}
+	}
+	.ui-datepicker-prev{
+		left: 2px;
+		&:before {
+			content: "\e903";
+		}
+	}
+	.ui-datepicker-next-hover{right: 2px;top: 2px;}
+	.ui-datepicker-prev-hover{left: 2px;top: 2px;}
+}

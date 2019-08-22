@@ -1,0 +1,115 @@
+@import "../variables";
+
+
+.content-terms{
+	.h1{
+		font-weight: 500;
+		font-size: 18px;
+		color: rgb(0, 0, 0);
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+	.h2{
+		font-weight: 500;
+		color: rgb(0, 0, 0);
+		margin-bottom: 14px;
+		text-transform: uppercase;
+	}
+	.descr{
+		margin-bottom: 50px;
+		line-height: 1.4;
+		p{
+			margin-bottom: 10px;
+		}
+		b,
+		.c-white{
+			color: #fff;
+		}
+	}
+	.list{
+		margin: 50px 30px 70px;
+		max-width: 640px;
+		line-height: 1.4;
+		&-disc{
+			li{
+				position: relative;
+				&:before{
+					position: absolute;
+					content: '';
+					width: 4px;
+					height: 4px;
+					
+					left: -23px;
+					top: 5px;
+					background: rgba($text-color, .7);
+				}
+				
+			}
+		}
+		li{
+			margin-bottom: 10px;
+			font-size: 13px;
+		}
+	}
+}
+
+.terms {
+	.h1 {
+		font-weight: bold;
+		font-size: 30px;
+		color: rgb(0, 0, 0);
+		text-transform: uppercase;
+	}
+	.h2 {
+		font-weight: bold;
+		font-size: 25px;
+		color: rgb(0, 0, 0);
+		margin-bottom: 14px;
+		text-transform: uppercase;
+	}
+	.description {
+		margin-bottom: 5px;
+		line-height: 1.4;
+		p {margin-bottom: 8px;}
+	}
+
+	.termsContainer{
+		width: 90%;
+		margin: auto;
+		background: linear-gradient(rgba(115,115,115,1) 0%,rgba(235,235,235,1) 10%, rgba(235,235,235,1) 90%, rgba(115,115,115,1) 100%);
+		//background: linear-gradient(rgba(115,115,115,1) 0%,rgba(255,255,255,1) 10%,rgba(145,145,145,1) 20%,rgba(255,255,255,1) 30%,rgba(145,145,145,1) 40%,rgba(255,255,255,1) 50%,rgba(145,145,145,1) 60%,rgba(255,255,255,1) 70%,rgba(145,145,145,1) 80%,rgba(255,255,255,1) 90%,rgba(115,115,115,1) 100%);
+		border-radius: 8px;
+	}
+
+	.termsHeaderContainer{
+		padding: 10px 20px 5px 20px;
+		//background: linear-gradient(to bottom, rgba(115,115,115,1) 0%,rgba(255,255,255,1) 100%);
+		background-color: transparent;
+		border-radius: 8px;
+	}
+
+	.termsMiddleContainer{
+		padding: 5px 20px 5px 20px;
+		//background-color: #F6F6F6;
+		background-color: transparent;
+		border-radius: 8px;
+	}
+
+	.termsBottomContainer{
+		padding: 5px 20px 10px 20px;
+		//background: linear-gradient(to top, rgba(115,115,115,1) 0%,rgba(255,255,255,1) 100%);
+		background-color: transparent;
+		border-radius: 8px;
+	}
+
+	
+	}
+	.list{
+		margin-bottom: 12px;
+		max-width: 90%;
+		line-height: 1.4;
+		li {
+			margin-bottom: 5px;
+			font-size: 13px;
+		}
+	}

@@ -1,0 +1,58 @@
+@import "../variables";
+@import "../mixins";
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	mso-table-lspace: 0pt; mso-table-rspace: 0pt;
+}
+td{
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+.email__bg{
+	background: #f0f0f0;
+}
+.container__td{
+	max-width: 600px;
+	width: 100%;
+	background: #fff;
+	margin: 60px auto;
+	
+	text-align: center;
+	font-size: 16px;
+	color: #00294b;
+	vertical-align: top;
+	display: block;
+}
+.wrap{}
+.table__head{
+	height: 130px;
+	padding: 0 50px;
+	background: url("../images/emailBg.png") 0 0 no-repeat;
+	&Title{
+		font-size: 28px;
+		color: #fff;
+		margin-top: 70px;
+	}
+}
+.table__body{
+	padding: 35px 75px;
+	.text{
+		margin-bottom: 15px;
+	}
+	.link{
+		color: #30a9cb;
+		font-size: 16px;
+		text-decoration: none;
+	}
+	.c-muted{
+		color: #58697b;
+	}
+}

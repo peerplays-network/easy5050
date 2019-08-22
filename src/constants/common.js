@@ -1,0 +1,6 @@
+export default {
+    MINIMAL_PRECISION: 5,
+    MAX_TICKETS_AMOUNT: 100000,
+    MIN_TICKETS_AMOUNT: 5,
+    MAX_TICKET_PRICE: 10
+};

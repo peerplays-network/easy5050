@@ -1,0 +1,93 @@
+@import "variables";
+@import "mixins";
+
+html{height: 100%; font-size: 100%;}
+body{
+	height: 100%;
+	min-width: 1200px;
+	color: rgba($text-color, .7);
+	font: 15px $ff-main;
+	background: $dark2;
+}
+img{
+	vertical-align: middle;
+}
+a{
+	font: inherit $ff-main;
+	text-decoration: none;
+	@include transition();
+	color: rgba($text-color, .7);
+}
+
+input, button, textarea{
+	font-family: $ff-main;
+}
+b, strong{
+	font-weight: 500;
+}
+.img-responsive{
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	max-width: 100%;
+	max-height: 100%;
+}
+.wrapper{
+	position:relative;
+	z-index: 2;
+	min-height: 100%;
+	height: auto !important;
+	@include clearfix();
+	&-with-footer{
+		padding-bottom: 60px;
+	}
+}
+.content{
+	padding: 80px 0 0 310px;
+	&-db{}
+	&-create{
+		.box{
+			padding-right: 110px;
+		}
+	}
+	&-404{
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&-mySweeps{}
+	&-terms{
+		.box{
+			padding: 35px 160px 0 40px;
+		}
+	}
+}
+.box{
+	padding: 60px;
+}
+
+.link,
+.mark{
+	color: $mark;
+}
+.find{
+	background: #2f6acf;
+	color: #fff;
+}
+.muted{color: rgba($text-color, .5);padding-right: 5px;}
+
+.button-align{
+	text-align: center;
+}
+
+@media (max-width:1380px) {
+	.content{
+		&-create{
+			.col-6{
+				width: 100%;
+				padding-left: 0;
+			}
+		}
+	}
+}

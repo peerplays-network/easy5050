@@ -1,0 +1,60 @@
+/*Primary colors as per style guide*/
+/*Secondary color as per style guide*/
+/*Teriary Colors as per style guide*/
+/*text formatting*/
+.justify-content-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.drawInformationMargin {
+  margin-top: 30px;
+}
+
+.row {
+  margin: 10px;
+}
+
+.createDrawLabel {
+  font-size: 12px;
+  margin: 0 10px;
+  color: #ffffff;
+}
+
+.min5 {
+  float: right;
+  margin-top: 7px;
+  color: #c0a351;
+}
+
+.ticketMargin {
+  width: 100%;
+  margin-top: 0.5em;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: #c0a351;
+  color:white;
+  line-height: 0;
+}
+
+#draw_date,
+#draw_time {
+  line-height: 1;
+  width: 169px;
+}
+
+#draw_date {
+  margin: 0px 10px 0px 0px;
+}
+
+#draw_time {
+  margin: 0px 0px 0px 10px;
+}
+
+.icon-calendar:before {
+  content: '\e907';
+}
+
+.formMargin-create {
+  margin-bottom: 1em;
+}

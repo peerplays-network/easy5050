@@ -1,0 +1,125 @@
+.field{
+	font-size: 16px;
+	//font-weight: 500;
+	letter-spacing: .7px;
+	color: $text-color;
+	border: 2px solid $gray;
+	height: 42px;
+	background: transparent;
+	width: 100%;
+	padding: 0 30px 0 20px;
+	outline: none;
+	@include plhl-color(rgba($text-color, .3));
+	@include transition(all .15s ease);
+	@include border-radius(6px);
+	@include user-sel-n;
+	
+	&.disabled,
+	&[disabled]{
+		background: rgba($gray, .5);
+		color: rgba($text-color, .3);
+		cursor: default;
+		& ~ i{
+			cursor: default;
+			&:hover{opacity: 1;}
+		}
+	}
+	&[readonly]{}
+	&:focus{
+		border-color: $prime;
+	}
+	&.error{
+		border-color: $error-color;
+	}
+	&.filled{
+		background: $dark2;
+	}
+	&-calendar{}
+	&-time{}
+}
+div.field{
+	line-height: 38px;
+}
+//.textarea{
+//	padding: 12px 20px;
+//	line-height: 1.25;
+//	height: 120px;
+//}
+.btn{
+	height: 42px;
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
+	padding: 0 35px;
+	
+	@include border-radius(8px);
+	@include transition();
+	
+	&.disabled,
+	&[disabled]{
+		opacity: .5;
+		cursor: default;
+	}
+	
+	&.fluid{
+		width: 100%;
+		text-align: center;
+	}
+	
+	&-primary {
+		background: $prime;
+		color: $text-color-dark;
+		&:hover{
+			background: darken($prime, 5%);
+		}
+	}
+	&-primary-blue {
+		background: $prime-blue;
+		color: $text-color-dark;
+		&:hover{
+			background: darken($prime-blue, 5%);
+		}
+	}
+	&-add{
+		background: $gray;
+		color: $text-color-dark;
+		text-transform: uppercase;
+		padding: 0 45px;
+		white-space: nowrap;
+		&:hover{
+			background: darken($gray, 5%);
+		}
+		i{
+			font-size: 22px;
+			color: $text-color-dark;
+			padding-right: 8px;
+		}
+		& > *{
+			display: inline-block;
+			vertical-align: text-bottom;
+		}
+	}
+	&-del{
+		display: inline-block;
+		padding: 0;
+		height: auto;
+		@include border-radius(50%);
+		&:hover{opacity: .6;}
+		i{
+			color: $gray;
+			font-size: 40px;
+		}
+	}
+	&-gray{
+		background: #7d7d7d;
+		color: $text-color-dark;
+		&:hover{
+			background: darken(#7d7d7d, 5%);
+		}
+	}
+	
+	&.p-60{
+		padding: 0 60px;
+	}
+}
+

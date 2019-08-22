@@ -1,0 +1,143 @@
+.table{
+	width: 100%;
+	&__box{}
+	&__sorting{
+		&Trigger{
+			display: flex;
+			justify-content: space-between;
+			padding: 20px 0 10px;
+			line-height: 0;
+			color: rgba($text-color, .5);
+			@include transition();
+			&:hover{opacity: .6;}
+
+			&.desc,
+			&.asc{
+				cursor: default;
+			}
+			&.desc{
+				.table__sortingDown{color: rgba($text-color, .8);}
+			}
+			&.asc{
+				.table__sortingUp{color: rgba($text-color, .8);}
+			}
+			& > *{
+				vertical-align: middle;
+			}
+		}
+		&Text{
+			font-size: 13px;
+			line-height: 1.25;
+		}
+		&Arrows{
+			display: inline-block;
+			width: 6px;
+			height: 12px;
+			position: relative;
+		}
+		
+		&Up,
+		&Down{
+			position: absolute;
+			right: 0;
+			font-size: 5px;
+		}
+		&Up{top: 0;}
+		&Down{bottom: 0;}
+	}
+	&__empty{
+		text-align: center;
+		padding: 30px 0;
+		font-size: 18px;
+	}
+}
+.tr{
+	&-no-cursor{
+		cursor: default!important;
+	}
+	&.selected{
+		background: $mark;
+		color: $text-color-dark;
+		.muted{color: $text-color-dark;}
+	}
+	&.selected-red{
+		background: $error-color;
+		color: $text-color-dark;
+		.muted{color: $text-color-dark;}
+	}
+}
+.th{
+	font-weight: 400;
+	text-align: left;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	height: 60px;
+	vertical-align: middle;
+}
+.td{
+	height: 60px;
+  vertical-align: middle;
+	&-full{
+		width: 100%!important;
+	}
+	&__cell{
+		display: block;
+		@include ellipsis;
+	}
+}
+
+.table-db{
+	table-layout: fixed;
+	.tr{
+		cursor: pointer;
+	}
+	.th,
+	.td{
+		padding-right: 50px;
+		&:nth-child(1){width: 16%; padding-left: 45px;}
+		&:nth-child(2){width: 17%;}
+		&:nth-child(3){width: 16%;}
+		&:nth-child(4){width: 17%;}
+		&:nth-child(5){width: 18%;}
+		&:nth-child(6){width: 16%;padding-right: 45px;}
+		
+	}
+}
+@media (max-width:1300px) {
+	.table-db{
+		.th,
+		.td{
+			padding-right: 20px;
+			
+		}
+	}
+}
+
+
+
+.table-mySweeps{
+	table-layout: fixed;
+	.tr{
+		cursor: pointer;
+	}
+	.th,
+	.td{
+		padding-right: 50px;
+		&:nth-child(1){width: 18%; padding-left: 45px;}
+		&:nth-child(2){width: 15%;}
+		&:nth-child(3){width: 16%;}
+		&:nth-child(4){width: 17%;}
+		&:nth-child(5){width: 18%;}
+		&:nth-child(6){width: 16%;padding-right: 45px;}
+		
+	}
+}
+@media (max-width:1300px) {
+	.table-mySweeps{
+		.th,
+		.td{
+			padding-right: 20px;
+			
+		}
+	}
+}

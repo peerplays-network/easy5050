@@ -1,0 +1,293 @@
+#wrapper_header {
+  margin: 0;
+  padding: 10px 0;
+}
+/* header navigation */
+
+.navNewDraw,
+.navMyDraws,
+.navHistory,
+.navTerms {
+  margin: 0 10px;
+}
+/* end of header navigation */
+
+a {
+  color: #c0a351;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+  vertical-align: middle;
+}
+
+.flex {
+  display: flex;
+}
+.noDecor {
+  text-decoration: none;
+}
+.verticalAlign {
+  align-items: center;
+}
+label {
+  margin: 0;
+}
+::-webkit-input-placeholder {
+  text-align: left;
+}
+
+/* mozilla solution */
+
+input:-moz-placeholder {
+  text-align: left;
+}
+
+.drawNameSearch {
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 3px;
+}
+
+.drawFromDteSearch {
+  border: 0.5px solid gray;
+  width: 120px;
+  border-radius: 3px;
+}
+
+.drawToDteSearch {
+  border: 0.5px solid gray;
+  width: 120px;
+  border-radius: 3px;
+}
+
+/* colours */
+
+.green {
+  background: springgreen;
+}
+#txtSearch {
+  color: gray;
+}
+.gray-text {
+  color: gray;
+}
+
+.grey {
+  background: rgb(105, 105, 105);
+}
+
+.red {
+  background: rgb(255, 0, 0);
+}
+.black {
+  background: rgb(0, 0, 0);
+}
+.gold {
+  background: #ffd567;
+}
+
+.gradient {
+  background: linear-gradient(#4b4b4b, #000000);
+}
+
+/* end of colours */
+
+.filters {
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 10;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* criterias */
+
+#criteriaPagination {
+  margin: auto 10px;
+}
+#criteriaActive {
+  margin: auto 10px;
+}
+
+/* pagination */
+
+.page-string {
+  color: white;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.input-page-string {
+  color: white;
+  padding: 5px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.max-pages {
+  color: gray;
+  padding-left: 0;
+}
+
+#pagination-container {
+  border-radius: 3px;
+}
+
+.pagePrev {
+  margin: 3px 2px;
+  padding: 3px 5px;
+  padding-right: 8px;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.enabled:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+}
+
+.pageNext {
+  margin: 3px 2px;
+  padding: 3px 5px;
+  padding-left: 8px;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.disabled {
+  color: grey;
+}
+
+.enabled {
+  color: black;
+  cursor: pointer;
+}
+
+/* end of pagination */
+
+/* slider*/
+
+/* toggle switch styling */
+
+/* The switch - the box around the slider */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 18px;
+}
+
+/* Hide default HTML checkbox */
+
+.switch input {
+  display: none;
+}
+
+/* The slider */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 5;
+  left: 0;
+  right: 0;
+  bottom: -5;
+  background-color: #505050;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 2px;
+  background-color: #c0a351;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #505050;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #505050;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* end of slider */
+
+/* dropdown  style */
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  font-size: 12px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgb(80, 80, 80);
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 1.4em;
+}
+
+.dropdown-content a {
+  color: #c0a351;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(80, 80, 80);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #353535;
+}
+/* end dropdown style */

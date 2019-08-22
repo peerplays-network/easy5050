@@ -1,0 +1,44 @@
+.glowGold {
+	animation: glow 800ms ease-out infinite alternate;
+    box-shadow: 
+        0 2px 0 #000;
+}
+
+.glowGoldBar {
+    animation: fill .5s ease-out, glowBar 800ms ease-out infinite alternate;
+}
+
+@keyframes fill {
+    0% {
+		width: 0%
+    }	
+    100% {
+		width: 100%
+    }
+}
+
+@keyframes glow {
+    0% {
+		border-color: #e3ae22; /* rgba(227, 174, 34, 1) */
+        box-shadow: 
+            0 0 5px rgba(227, 174, 34,.5), 
+            /* inset 0 0 5px rgba(227, 174, 34,.1), */
+            0 2px 0 #000;
+    }	
+    100% {
+		border-color: #ffd567; /* rgba(255, 213, 103, 1) */
+        box-shadow: 
+            0 0 20px rgba(255, 213, 103,1), 
+            /* inset 0 0 10px rgba(255, 213, 103,.4), */
+            0 2px 0 #000;
+    }
+}
+
+@keyframes glowBar {
+    0% {
+		background-color: #e3ae22; /* rgba(227, 174, 34, 1) */
+    }	
+    100% {
+		background-color: #ffd567; /* rgba(255, 213, 103, 1) */
+    }
+}

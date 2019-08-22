@@ -1,0 +1,46 @@
+.notFound{
+	&__wrap{
+		text-align: center;
+	}
+	&__title{
+		font-size: 200px;
+		margin-bottom: -12px;
+		color: $prime;
+		letter-spacing: -12px;
+		font-weight: 900;
+		//& > *{
+		//	vertical-align: middle;
+		//}
+		i{
+			position: relative;
+			top: 20px;
+		}
+	}
+	&__descr{
+		font-size: 36px;
+		font-weight: 500;
+		margin-bottom: 40px;
+	}
+	&__link{
+		display: inline-block;
+		font-size: 22px;
+		font-weight: 500;
+		color: rgba($prime, .7);
+		text-transform: uppercase;
+		margin-right: -10px;
+		&:hover{
+			color: $prime;
+		}
+		i{
+			font-family: Arial, sans-serif;
+			font-style: normal;
+			font-size: 35px;
+			padding-right: 16px;
+			position: relative;
+			top: -5px;
+		}
+		& > *{
+			vertical-align: middle;
+		}
+	}
+}

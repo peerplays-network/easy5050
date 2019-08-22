@@ -1,0 +1,131 @@
+thead th {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    color: gray;
+    border-color: white;
+    background-color: white;
+}
+
+td,
+th {
+    max-width: 0;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table.table-bordered thead tr th {
+    background-color: white;
+    border-color: white;
+}
+
+table.table-bordered thead tr th:hover {
+    background-color: whitesmoke;
+}
+
+tr.oddRow {
+    background-color: linear-gradient(to right, #a85f10, #eea020, #eea020, #a35c11);
+}
+
+tr.evenRow {
+    background-color: linear-gradient( #fdd48d,  #fdd48d,#d3aa51); 
+}
+
+tr.oddRow:hover td,
+tr.oddRow:hover th {
+    background-color: #dddddd;
+}
+
+tr.evenRow:hover td,
+tr.evenRow:hover th {
+    background-color: #fdecbb;
+}
+
+th.columnA {
+    width: 17%;
+    border-color: black;
+    border-bottom-width: thick;
+}
+
+td.columnB {
+    width: 27%;
+    border-color: black;
+    border-bottom-width: thick;
+}
+
+td.columnC {
+    width: 23%;
+    border-color: black;
+    border-bottom-width: thick;
+}
+
+td.columnD {
+    width: 13%;
+    border-color: black;
+    border-bottom-width: thick;
+}
+
+td.columnE {
+    width: 20%;
+    border-color: black;
+    border-bottom-width: thick;
+}
+
+.small-frame {
+    text-align: right;
+    float: right;
+    width: 10%;
+    font-size: 0.8em;
+}
+
+.Col-Header {
+    display: inline;
+    float: left;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selected {
+    color: black;
+    line-height: 1;
+}
+
+.unselected {
+    color: #bbbbbb;
+    line-height: 1;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    height: 18px;
+    border: 1px solid #666;
+    color: #666;
+    text-align: center;
+    font-size: 10px;
+    float: right;
+    width: 18px;
+}
+
+.numberCircle:hover {
+    cursor: pointer;
+}
+
+.price {
+    float: left;
+}
+
+.tooltip-inner {
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tooltip .arrow:before {
+ border-bottom-color:rgba(0,0,0,0);
+ border-top-color:rgba(0,0,0,0);
+ }

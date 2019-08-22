@@ -1,0 +1,8 @@
+{
+    "BLOCKCHAIN_URL": "ws://ec2-35-183-70-167.ca-central-1.compute.amazonaws.com:8090",
+    "FAUCET_URLS": [
+        "http://ec2-35-183-70-167.ca-central-1.compute.amazonaws.com:5000/api/v1/accounts"
+    ],
+    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
+    "ELECTRON": false
+}

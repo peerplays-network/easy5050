@@ -1,0 +1,17 @@
+.upload{
+	&__btn{
+		position: relative;
+		overflow: hidden;
+		input{
+			position: absolute;
+			top: -20px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 300%;
+			opacity: 0;
+			z-index: 1;
+			cursor: pointer;
+		}
+	}
+}
