@@ -1,7 +1,7 @@
 {
-    "BLOCKCHAIN_URL": "",
+    "BLOCKCHAIN_URL": "http://pta.blockveritas.co:8089/",
     "FAUCET_URLS": [
-        ""
+        "https://beatrice-faucet.peerplays.download/api/v1/accounts"
     ],
     "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
     "ELECTRON": false
