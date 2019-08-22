@@ -1,0 +1,9 @@
+{
+    "BLOCKCHAIN_URL": "wss://api1.peerplays.download/ws", 
+    "FAUCET_URLS": [
+        "https://api1.peerplays.download/faucet"
+    ],
+    "BITSHARES_WS": "wss://bitshares.openledger.info/ws",
+    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "ppcoreupdates",
+    "ELECTRON": false
+}

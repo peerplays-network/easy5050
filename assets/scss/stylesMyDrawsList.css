@@ -1,0 +1,61 @@
+thead th {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    color: gray;
+    border-color: black;
+    background-color: black;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+}
+
+td,
+th {
+    max-width: 0;
+    font-size: 14px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table.table-bordered thead tr th {
+    background-color: black;
+    border-color: black;
+}
+
+table.table-bordered thead tr th:hover {
+    background-color: black;
+}
+
+
+
+.small-frame {
+    text-align: right;
+    float: right;
+    width: 10%;
+    font-size: 0.8em;
+}
+
+.Col-Header {
+    display: inline;
+    float: left;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+
+.selected {
+    color: black;
+    line-height: 1;
+}
+
+.unselected {
+    color: #bbbbbb;
+    line-height: 1;
+}
+
+.price {
+    float: left;
+}

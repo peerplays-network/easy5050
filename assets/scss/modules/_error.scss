@@ -1,0 +1,13 @@
+.error{
+	&__text{
+		font-size: 12px;
+		line-height: 1.4;
+		color: $error-color;
+		text-align: right;
+		&.pos-abs{
+			position: absolute;
+			top: 100%;
+			right: 0;
+		}
+	}
+}

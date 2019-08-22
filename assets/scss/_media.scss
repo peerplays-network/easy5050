@@ -1,0 +1,68 @@
+/*pixel-ratio: 2*/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+	/*.illustration_box span[class^="icon-"]{display: inline;}*/
+}
+
+/*pixel-ratio: 3*/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 3),
+only screen and (   min--moz-device-pixel-ratio: 3),
+only screen and (     -o-min-device-pixel-ratio: 3/1),
+only screen and (        min-device-pixel-ratio: 3),
+only screen and (                min-resolution: 288dpi),
+only screen and (                min-resolution: 3dppx) {
+
+
+}
+/*--------------------------------------------------------------------------------------------1280 ... ---------------*/
+@media (min-width:1280px) {
+	/*body                                        {background: orange;}*/
+}
+
+/*--------------------------------------------------------------------------------------------1024 to 1280 -----------*/
+@media (min-width:1024px) and (max-width: 1280px) {
+	html                                        {font-size: 95%;}
+	/*body                                        {background: beige;}*/
+}
+
+
+/*--------------------------------------------------------------------------------------------768_to_1023-------------*/
+@media (min-width: 768px) and (max-width: 1023px) {
+	html                                        {font-size: 90%;}
+	/*body                                        {background: black;}*/
+}
+
+
+/*--------------------------------------------------------------------------------------------..._to_767--------------*/
+@media (max-width: 767px) {
+	html                                        {font-size: 82%;}
+	/*body                                        {background: green;}*/
+}
+
+
+/*--------------------------------------------------------------------------------------------480_to_767--------------*/
+@media (min-width: 480px) and (max-width: 767px) {
+	/*body                                        {background: brown;}*/
+}
+
+
+/*--------------------------------------------------------------------------------------------320_to_479--------------*/
+@media (min-width: 320px) and (max-width: 479px) {
+	/*body                                        {background: blue;}*/
+
+}
+
+/*--------------------------------------------------------------------------------------------..-320------------------*/
+@media (max-width: 320px) {
+	/*body                                         {background: red;}*/
+
+}
+
+
+

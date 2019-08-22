@@ -1,0 +1,229 @@
+
+
+#strongText {
+    font-weight: bold;
+}
+
+.table th {
+    border-top: none;
+    border-bottom: none;
+}
+
+.table thead th {
+    border: none;
+    background: linear-gradient(to bottom, rgba(115,115,115,1) 0%,rgba(255,255,255,1) 100%);
+    background-color: linear-gradient(to bottom, rgba(115,115,115,1) 0%,rgba(255,255,255,1) 100%);
+}
+
+thead th {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    color: #c0a351;
+    border-color: black;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    border-bottom: none;
+}
+
+td,
+th {
+    border: none;
+    max-width: 0;
+    font-size: 14px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table td {
+    border-top:none;
+}
+
+table.table-bordered thead tr th {
+    /* background-color: black; */
+    border-color: var(--app-background-color);
+    border-top: var(--app-background-color);
+    border: 1px solid black;
+}
+
+table.table-bordered thead tr th:hover {
+    background-color: whitesmoke;
+}
+
+tr.oddRow {
+    background-color: var(--table-striped-odd-alt);
+}
+
+tr.evenRow {
+    background-color: var(--table-striped-even);    
+}
+
+th.columnA {
+    border-color: var(--table-striped-odd-alt);
+    border-bottom-width: thick;
+}
+
+td.columnB {
+    border-color: var(--table-striped-odd-alt);
+    border-bottom-width: thick;
+}
+
+td.columnC {
+    border-color: var(--table-striped-odd-alt);
+    border-bottom-width: thick;
+}
+
+
+
+.small-frame {
+    text-align: right;
+    float: right;
+    width: 10%;
+    font-size: 0.8em;
+}
+
+.Col-Header {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selected {
+    color: black;
+    line-height: 1;
+}
+
+.unselected {
+    color: black;
+    line-height: 1;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    height: 18px;
+    border: 1px solid #666;
+    color: #666;
+    text-align: center;
+    font-size: 10px;
+    float: right;
+    width: 18px;
+}
+
+.numberCircle:hover {
+    cursor: pointer;
+}
+
+.price {
+    float: left;
+}
+
+.tooltip-inner {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.table-striped-inactive-my-tickets > tbody > tr {
+  &:nth-of-type(odd) {
+    background: var(--my-tickets-table-striped-odd);
+  }
+  &:nth-of-type(even) {
+    background: var(--my-tickets-table-striped-even);
+  }
+  &:nth-of-type(odd) {
+    background: var(--my-tickets-table-striped-odd);
+  }
+  &:hover {
+    &:nth-of-type(even) {
+      background: var(--my-tickets-table-striped-even);
+    }
+    &:nth-of-type(odd) {
+      background: var(--my-tickets-table-striped-odd);
+    }
+  }
+}
+
+.tooltip .arrow:before {
+
+ }
+
+.bg-golden {
+    background-color: goldenrod;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background: var(--table-striped-odd);
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background: var(--table-striped-even); 
+}
+
+.table-history>tbody>tr:nth-of-type(even) {
+    background: var(--my-tickets-table-striped-even);
+}
+
+.table-history>tbody>tr:nth-of-type(odd) {
+    background: var(--my-tickets-table-striped-odd);
+}
+
+#historyTable th:first-child{
+    width:50%;
+}
+#historyTable td:first-child{
+    width:50%;
+}
+
+ th {
+    border-color: var(--app-background-color);
+    border-top: var(--app-background-color);
+    border-bottom-width: thick;
+}
+
+td {
+    border-color: var(--app-background-color);
+    border-top: var(--app-background-color);
+    border-bottom-width: thick;
+}
+
+.greyGradientSpacerBottom{
+    position: relative;
+    top: -16px;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to right, #dadada, #ffffff, #9c9c9c, #dadada);
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    padding-top: 0px;
+}
+
+
+  .borderTop-history100Silver {
+    background: #e6e6e6; /* Old browsers */
+    background: -moz-linear-gradient(left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding-top: 8px;
+    position:relative;
+    width: 100%;
+  }
+
+  .borderTop-history300Silver {
+    background: #e6e6e6; /* Old browsers */
+    background: -moz-linear-gradient(left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to left, #e6e6e6, #838383, #e6e6e6, #e6e6e6); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding-top: 8px;
+    position:relative;
+    width: 200%;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio:0) { /* because Chrome can't round properly */
+    .borderTop-history300Silver {
+        width: 200.1%;
+    }
+ }

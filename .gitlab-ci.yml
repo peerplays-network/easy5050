@@ -1,0 +1,27 @@
+build_dev:
+  stage: build
+  script:
+    - cd /var/www/Projects/628.sweeps/web-app
+    - git pull
+    - npm i
+    - npm run build-dev-server
+  only:
+    - development
+  environment:
+    name: development
+  tags:
+    - dev@s.pixelplex.by
+
+build_stage:
+  stage: build
+  script:
+    - cd /home/jonathan/web-app
+    - git pull
+    - npm i
+    - npm run build-stage-server
+  only:
+    - stage
+  environment:
+    name: stage
+  tags:
+    - jonathan@sweeps

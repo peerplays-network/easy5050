@@ -1,0 +1,215 @@
+.header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	height: 80px;
+	background: $dark;
+	@include box-shadow(0 5px 20px rgba(0,0,0,.2));
+	&__box{
+		@include clearfix;
+		width: 100%;
+	}
+	&__left{
+		float: left;
+		margin: 18px 0;
+		padding-left: 45px;
+		& > *{
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 25px;
+		}
+	}
+	&__numInfo{
+		font-size: 18px;
+		color: rgba($text-color, .3);
+		.active{
+			color: rgba($text-color, .7);
+		}
+	}
+	&__nav{
+		&Item{
+			display: inline-block;
+			vertical-align: top;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			font-size: 0;
+			margin: 0 2px;
+			background: #343843;
+			@include border-radius(6px);
+			@include transition();
+			&:hover{opacity: .6;}
+			&.disabled{
+				cursor: default;
+				opacity: .7;
+				&:hover{opacity: .7;}
+			}
+			i{
+				font-size: 14px;
+				line-height: 40px;
+				color: rgba($text-color, .5);
+			}
+		}
+	}
+	&__calendar{
+		position: relative;
+		padding: 10px 10px 10px 0;
+		overflow: hidden;
+		cursor: pointer;
+		&.date-selected{
+			input{
+				width: 90px;
+			}
+			.header__calendarClear{
+				display: inline-block;
+			}
+		}
+		& > *{
+			vertical-align: middle;
+		}
+		& > i{
+			font-size: 22px;
+			color: rgba($text-color, .3);
+			@include transition();
+			margin-right: 20px;
+			&:hover{opacity: .6;}
+		}
+		input{
+			width: 0;
+			cursor: pointer;
+			background: transparent;
+			font-size: 16px;
+			height: 25px;
+			color: rgba($text-color, .7);
+		}
+		&Clear{
+			display: none;
+			padding: 5px 0;
+			color: rgba($text-color, .3);
+			cursor: pointer;
+			@include transition();
+			& > *{
+				vertical-align: middle;
+			}
+			&:hover{
+				opacity: .6;
+			}
+			i{
+				font-size: 14px;
+				padding-right: 5px;
+			}
+			.text{
+				font-size: 1rem;
+			}
+		}
+	}
+	
+	&__right{
+		float: right;
+		height: 100%;
+		overflow: hidden;
+	}
+	&__search,
+	&__notification,
+	&__message,
+	&__acc{
+		float: left;
+		border-left: 1px solid rgba(255, 255, 255, 0.03);
+		width: 78px;
+		height: 80px;
+		text-align: center;
+		&Info{
+			max-width: 100%;
+		}
+	}
+	&__search,
+	&__notification,
+	&__message{
+		@include transition();
+		&:hover{opacity: .6;}
+		i{
+			position: relative;
+			vertical-align: middle;
+			color: rgba($text-color, .5);
+			font-size: 20px;
+			line-height: 80px;
+		}
+		&.unread{
+			i{
+				&:after{
+					position: absolute;
+					content: '';
+					top: -6px;
+					right: -6px;
+					background: $header-mark;
+					width: 10px;
+					height: 10px;
+					@include border-radius(50%);
+				}
+			}
+		}
+	}
+	
+	&__search{}
+	&__notification{}
+	&__message{}
+	&__acc{
+		position: relative;
+		width: 260px;
+		padding-left: 70px;
+		padding-right: 20px;
+		text-align: left;
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		&.active{
+			background: #2b2d34;
+			border-left-color: #2b2d34;
+			cursor: default;
+		}
+		&Pic{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			left: 12px;
+			width: 50px;
+			height: 50px;
+			@include border-radius(50%);
+			background: $dark2;
+			overflow: hidden;
+			img{
+				object-fit: cover;
+				height: 100%;
+				width: 100%;
+			}
+		}
+		&Info{}
+		&Name{
+			@include ellipsis;
+			margin-bottom: 3px;
+		}
+		&SignOut{
+			color: rgba($text-color, .4);
+			@include transition();
+			&:hover{opacity: .6;}
+		}
+	}
+}
+.logo{
+	&__wrap{
+		min-width: 310px;
+	}
+	display: inline-block;
+	padding: 20px 30px;
+	&:hover{opacity: .6;}
+	@include transition();
+	img{
+		height: 30px;
+	}
+}

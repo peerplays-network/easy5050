@@ -1,0 +1,8 @@
+{
+    "BLOCKCHAIN_URL": "ws://10.20.10.47:8090/ws",
+    "FAUCET_URLS": [
+        "http://10.20.10.47:3000/api/v1/accounts"
+    ],
+    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
+    "ELECTRON": false
+}

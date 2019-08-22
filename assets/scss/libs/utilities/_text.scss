@@ -1,0 +1,59 @@
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-slim {
+  font-weight: $fontSlim;
+}
+
+.text-medium {
+  font-weight: $fontMed;
+}
+
+.text-bold {
+  font-weight: $fontBold;
+}
+
+.text-xbold {
+  font-weight: $fontXBold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-regular {
+  font-size: $fontReg;
+}
+
+.text-sm {
+  font-size: $fontSm;
+}
+
+.text-lg {
+  font-size: $fontLg;
+}
+
+.text-xl {
+  font-size: $fontXl;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-white {
+  color: $colorWhite !important;
+}

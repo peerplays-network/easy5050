@@ -1,0 +1,65 @@
+.activeMenu {
+  color: $white !important;
+  background: linear-gradient($black, $gradientColor3);
+}
+
+.activeBar {
+  color: $white !important;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.margin-bottom {
+  margin-bottom: 0.5em;
+}
+
+.white-text-style {
+  color: white;
+  font-size: 12px;
+  margin-right: 1em;
+}
+
+.balance-box-style {
+  padding: 5px;
+  outline: 1px solid #595342;
+  outline-style: solid;
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--username-balance-text);
+}
+
+.balance-style {
+  color: var(--username-balance-text);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.ppy-symbol-style {
+  color: #888888;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.nav__item {
+  color: $textColor;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.colorMyBackBlack {
+  background: linear-gradient($black, $gradientColor3);
+}

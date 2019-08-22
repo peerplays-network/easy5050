@@ -1,0 +1,76 @@
+.dd{
+	position: relative;
+	&.open{
+		& > .ddMenu{
+			@include vv;
+		}
+		& > .ddTrigger{
+			@include border-radius(0 6px 0 0);
+			i{
+				@include transform(rotate(180deg));
+				margin-top: -3px;
+			}
+		}
+		.field{
+			border-color: $prime;
+			@include border-radius(6px 6px 0 0);
+		}
+	}
+	&.theme-gray{
+		.ddTrigger{
+			background: $gray;
+		}
+		.ddMenu{
+			background: $gray;
+		}
+	}
+	
+	&Trigger{
+		position: relative;
+		padding: 13px 25px 13px 20px;
+		background: $prime;
+		height: 42px;
+		@include border-radius(0 6px 6px 0);
+		cursor: pointer;
+		i{
+			position: absolute;
+			font-size: 6px;
+			right: 15px;
+			top: 50%;
+			@include translate(0, -50%);
+			display: inline-block;
+			color: rgba($text-color-dark, .7);
+		}
+		.text{
+			font-size: 16px;
+			color: rgba($text-color-dark, .8);
+			font-weight: 500;
+			@include user-sel-n;
+		}
+	}
+	&Menu{
+		/*@include vh;*/
+		background: #eeeeee;
+		position: absolute;
+		z-index: 1;
+		margin-top: 2px;
+		@include border-radius(0 0 6px 6px);
+		overflow-x: hidden;
+		overflow-y: auto;
+		max-height: 400px;
+		@include scroll(#3b3d46, transparent);
+		&__list{margin: 0;}
+		&__li{margin: 0;}
+		&__item{
+			display: block;
+			font-size: 16px;
+			font-weight: 500;
+			padding: 7px 20px;
+			color: rgba(#212228, .8);
+			&:hover{
+				background: rgba(#212228, .2);
+			}
+		}
+	}
+}
+

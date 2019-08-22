@@ -1,0 +1,29 @@
+
+.footer p, .footer a {
+    color: var(--footer-text);
+}
+.left-footer{
+    text-align:left;
+    float:left;
+}
+
+.right-footer{
+    float:right;
+    text-align:right;
+}
+
+.centered-footer{
+    text-align:center;
+}
+
+.logo-footer {
+    margin-right: -238px;
+}
+
+.icons-footer {
+    margin-top: 1em;
+}
+
+.socialIcon-footer:hover {
+    color: white;
+}
