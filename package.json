@@ -22,7 +22,7 @@
     "build-48": "export NODE_ENV=production&&export NODE_CONFIG=prod.48&&webpack --config webpack/webpack.config.js",
     "start-48": "serve ./dist -s -p 81",
     "prod": "serve ./dist -s",
-    "lint": "eslint . --ext .js,.jsx",
+    "lint": "eslint src/**/*.{js,jsx}",
     "ngrok": "ngrok http -region eu 8080",
     "test": "jest",
     "precommit": "lint-staged"
@@ -53,11 +53,16 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "css-loader": "^0.28.7",
-    "eslint": "^4.18.2",
+    "eslint": "^6.2.1",
     "eslint-config-airbnb": "^15.0.2",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "^4.2.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-react-native": "^3.2.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "git-rev-sync": "^1.9.1",
@@ -74,8 +79,7 @@
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-dev-server": "^3.1.11",
-    "eslint-plugin-react-native": "^3.2.0"
+    "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
     "bignumber.js": "^5.0.0",
