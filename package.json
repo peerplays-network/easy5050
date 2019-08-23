@@ -11,7 +11,7 @@
     "build-stage": "SET NODE_ENV=production&&SET NODE_CONFIG=stage&&webpack --config webpack/webpack.config.js",
     "build-dev-server": "NODE_ENV=production NODE_CONFIG=dev webpack --config webpack/webpack.config.js",
     "build-stage-server": "NODE_ENV=production NODE_CONFIG=stage webpack --config webpack/webpack.config.js",
-    "build": "export NODE_ENV=development&&SET NODE_CONFIG=dev&&webpack --config webpack/webpack.config.js",
+    "build": "export NODE_ENV=development&& export NODE_CONFIG=dev&&webpack --config webpack/webpack.config.js",
     "start": "serve ./dist -p 8080",
     "build-44": "export NODE_ENV=development&&export NODE_CONFIG=dev.44&&webpack --config webpack/webpack.config.js",
     "start-44": "serve ./dist -s -p 81",
