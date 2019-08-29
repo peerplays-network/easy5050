@@ -3,6 +3,9 @@ image: node:8.16.1
 stages:
   - test
 
+before_script: 
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
+
 build:
   stage: test
   script:
