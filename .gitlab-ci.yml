@@ -4,6 +4,10 @@ stages:
   - test
 
 before_script: 
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 build:
