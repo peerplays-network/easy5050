@@ -1,7 +1,7 @@
 {
-    "BLOCKCHAIN_URL": "wss://595-dev-blockchain.pixelplex.by/ws", 
+    "BLOCKCHAIN_URL": "", 
     "FAUCET_URLS": [
-        "https://595-dev-faucet.pixelplex.by/api/v1/accounts"
+        ""
     ],
     "BITSHARES_WS": "wss://bitshares.openledger.info/ws",
     "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "ppcoreupdates",
