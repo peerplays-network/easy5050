@@ -1,8 +1,0 @@
-{
-    "BLOCKCHAIN_URL": "wss://qa.5050labs.fun:8091/ws",
-    "FAUCET_URLS": [
-        "https://qa.5050labs.fun:3001/api/v1/accounts"
-    ],
-    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
-    "ELECTRON": false
-}
