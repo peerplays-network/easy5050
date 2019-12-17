@@ -121,8 +121,9 @@ class DrawDetails extends React.Component {
                         } else if (/current_supply < lottery->options.max_supply/.test(errStr)) {
                             errStr = counterpart.translate('errors.tickets_left_for_sale');
                         } else if (/Insufficient Balance/.test(errStr)) {
-                            const amount = Helper.currencyConvert(new BigNumber(this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).div(Math.pow(10, 9)).toFixed(10));
-                            errStr = counterpart.translate('errors.dont_have_enough_funds', {amount, symbol: StorageService.get('currency') === 'BTC'|| StorageService.get('currency') === 'PPY' ? '' : StorageService.get('currency')}); // replace 'BTC' -> symbol
+                            let amount = Helper.currencyConvert(new BigNumber(this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).div(Math.pow(10, 9)).toFixed(10));
+                            amount = amount.replace(/\D/g,'');
+                            errStr = counterpart.translate('errors.dont_have_enough_funds', {amount, symbol: StorageService.get('currency')}); // replace 'BTC' -> symbol
                         } else if (/tickets_to_buy/.test(errStr)) {
     
                             errStr = counterpart.translate(
@@ -132,7 +133,7 @@ class DrawDetails extends React.Component {
                                     tickets_left: this.props.lotteryObject.getIn(['options', 'max_supply']) - this.props.lotteryObject.getIn(['dynamic', 'current_supply'])}
                               );
                         }
-    
+
                         this.setState({
                             error: errStr,
                             inProcess: false
