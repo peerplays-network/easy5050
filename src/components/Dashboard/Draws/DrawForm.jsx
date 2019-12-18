@@ -93,10 +93,6 @@ class DrawForm extends React.Component {
       pristine
     } = this.props;
 
-    console.log('common form: ',commonFormError);
-    console.log('invalid: ',invalid);
-    console.log('pristine: ',pristine);
-
     let step1Paragraph = (
       <div className="pt-3">
         <p>
