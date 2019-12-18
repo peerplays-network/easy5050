@@ -76,6 +76,7 @@ class DrawForm extends React.Component {
   }
 
   render() {
+
     const createDrawStyle = {
       height: 'auto',
       top: '1%',
@@ -91,6 +92,10 @@ class DrawForm extends React.Component {
       invalid,
       pristine
     } = this.props;
+
+    console.log('common form: ',commonFormError);
+    console.log('invalid: ',invalid);
+    console.log('pristine: ',pristine);
 
     let step1Paragraph = (
       <div className="pt-3">
@@ -239,7 +244,6 @@ class DrawForm extends React.Component {
 export default reduxForm({
   form: 'drawApplicationForm',
   validate: (values, props) => {
-
     let requiredFields = constants.REQUIRED_FIELDS;
     const errors = {};
     if (values.resolution === props.initialValues.resolution) {
@@ -264,7 +268,9 @@ export default reduxForm({
 
     return errors;
   },
-  shouldError: ({ props }) => !props.valid && !props.error,
+  shouldError: ({ props }) => {
+    return !props.pristine;
+  },
   onSubmit: (values, dispatch) => {
     let type = 0;
 
