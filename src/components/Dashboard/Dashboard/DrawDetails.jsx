@@ -100,7 +100,6 @@ class DrawDetails extends React.Component {
                     inProcess: true
                 }, () => {
                     this.props.ticketsPurchased(this.state.quantity);
-                    debugger;
                     this.props.buyTickets(this.props.lotteryObject.get('id'), this.state.quantity, this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).then(() => {
                         this.resetToDefaultState();
                           // this.props.showSuccessModal(true);
@@ -123,7 +122,6 @@ class DrawDetails extends React.Component {
                         } else if (/current_supply < lottery->options.max_supply/.test(errStr)) {
                             errStr = counterpart.translate('errors.tickets_left_for_sale');
                         } else if (/Insufficient Balance/.test(errStr)) {
-                            debugger;
                             const amount = new BigNumber(this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).div(Math.pow(10, this.props.precision));
                             errStr = counterpart.translate('errors.dont_have_enough_funds', {amount, symbol: StorageService.get('currency') === 'BTC'|| StorageService.get('currency') === 'PPY' ? '' : StorageService.get('currency')}); // replace 'BTC' -> symbol
                         } else if (/tickets_to_buy/.test(errStr)) {
@@ -257,7 +255,9 @@ class DrawDetails extends React.Component {
 
             // Ticket Price
             ticketsPrice =
-            lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount']) / 1000000000;
+            lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount']);
+            
+            ticketsPrice = Number(ticketsPrice/(Math.pow(10, this.props.precision)).toFixed(this.props.precision))
 
             if (lotteryObject.getIn(['options', 'description'])) { // Check for null first, because that will crash the app
                 drawName = lotteryObject.getIn(['options', 'description']) == 'desc' || !Helper.IsJsonString(lotteryObject.getIn(['options', 'description'])) || lotteryObject.getIn(['options', 'description']) == '' ? drawName = lotteryObject.get('symbol') : drawName = JSON.parse(lotteryObject.getIn(['options', 'description'])).lottoName;
@@ -448,8 +448,8 @@ class DrawDetails extends React.Component {
                     position="right"
                     arrow
                     >
-                    <span className="yellow-dd ml-3"> {ticketsPrice}</span>
-                  </Tooltip>  
+                    <span className="yellow-dd ml-3"> {ticketsPrice} </span>
+                  </Tooltip>
                 </div>
               </Fade>
             </div>

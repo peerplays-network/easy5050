@@ -52,7 +52,7 @@ const PreviousSweepRow = ({
     new BigNumber(
           amount
         )
-          .div(Math.pow(10, 9))
+          .div(Math.pow(10, coreAssetPrecision))
           .toFixed(10);
 
   const ticketsTotal = lottoFromHash !== undefined ? lottoFromHash.getIn(['options', 'max_supply']) : 0;
@@ -119,7 +119,7 @@ const PreviousSweepRow = ({
         {formattedTime}
       </td>
       <td id="tableCustom" className="td">
-        {Helper.currencyConvert(Number(new BigNumber(amount).div(Math.pow(10, 9)).toFixed(10)))}
+        {Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10))}
       </td>
       <td id="tableCustom" className="td">
         <span className="td__cell">{Helper.currencyConvert(jackpot)}</span>

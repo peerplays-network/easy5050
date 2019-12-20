@@ -63,7 +63,7 @@ require('moment-countdown');
         isLogin: state.app.isLogin,
         currency: state.app.selectedCurrency,
         exchangeRates: state.app.exchangeRates,
-
+        precision: app.coreAsset.precision
 
     }),
     dispatch => ({
@@ -606,7 +606,7 @@ class Landing extends React.Component {
                       ? new BigNumber(
                           lottery.getIn(['lottery_options', 'ticket_price', 'amount'])
                         )
-                          .div(Math.pow(10, 9))
+                          .div(Math.pow(10, this.props.precision))
                           .toFixed(10)
                       : 0;
 

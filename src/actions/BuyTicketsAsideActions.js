@@ -77,7 +77,6 @@ class BuyTicketsAsideActions {
     }
 
     static buyTickets(lotteryId, quantity, amount) {
-        debugger;
         return (dispatch, getState) => {
             let state = getState(),
                 operationParams = {
