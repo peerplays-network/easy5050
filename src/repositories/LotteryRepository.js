@@ -8,7 +8,7 @@ export default class LotteryRepository {
 
     static createNewLottery(lotteryParams, state) {
         return new Promise((resolve, reject) => {
-
+            debugger;
             const pubKeys = Object.values(state.app.keys).map(key => key.pubkey);
             let transaction = new TransactionBuilder();
 

@@ -275,7 +275,6 @@ class AppActions {
     return (dispatch, getState) => {
       let history = account.get("history");
       account = account.remove("history");
-
       let balance = AccountChainRepository.getAccountBalance(account);
       dispatch(AppActions.setDisplayedBalance(balance))
       console.warn("getting balance . . .: " + balance);

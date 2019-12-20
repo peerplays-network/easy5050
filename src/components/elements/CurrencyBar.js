@@ -19,7 +19,7 @@ export default class CurrencyBar extends Component {
         let initCurrency = StorageService.get('currency');
 
         if (Object.keys(StorageService.get('currency')).length === 0 && StorageService.get('currency').constructor === Object) {
-            initCurrency = 'BTC';
+            initCurrency = 'PPY';
         }
         this.changeCurrencyDisplay(initCurrency);
 
@@ -78,11 +78,8 @@ export default class CurrencyBar extends Component {
           <div className="darkGrey">
             <div className="container padding-zero m-0">
               <div className="row m-0">
-                <div className="col-6 margin-zero d-flex align-items-center justify-content-start currencies-row text-extra-bold currencies-bar">
-                  <span className={btcClasses} onClick={() => this.changeCurrencyDisplay('BTC')}>₿</span>
+                <div className="col-6 margin-zero d-flex align-items-center justify-content-start currencies-row text-extra-bold currencies-bar cursor-default">
                   <span className={ppyClasses} onClick={() => this.changeCurrencyDisplay('PPY')}>PPY</span>
-                  <span className={cadClasses} onClick={() => this.changeCurrencyDisplay('CAD')}>CAD</span>
-                  <span className={usdClasses} onClick={() => this.changeCurrencyDisplay('USD')}>USD</span>
                 </div>
               </div>
             </div>

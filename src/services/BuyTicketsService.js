@@ -10,7 +10,7 @@ class BuyTicketsService {
     static buyTickets(params, keys) {
 //TODO::rm
 
-
+        debugger;
 
         return ;
 

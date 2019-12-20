@@ -52,7 +52,8 @@ function mapStateToProps(state) {
         amountOfItems: state.dashboard.get('lotteriesIds').size,
         dateFilter: state.dashboard.get('dateFilter'),
         activeFilters: state.dashboard.get('filters'),
-        currency: state.app.selectedCurrency
+        currency: state.app.selectedCurrency,
+        precision: state.app.coreAsset.get('precision')
     };
 }
 
@@ -428,7 +429,8 @@ class Dashboard extends React.Component {
       creatorsByHash,
       countRowsOnPage,
       sortField,
-      sortDirection
+      sortDirection,
+      precision
     } = this.props;
         const { loading } = this.state;
 
@@ -756,7 +758,6 @@ href=""
                     const endDate = moment
                     .utc(lottery.getIn(['lottery_options', 'end_date']))
                     .local();
-
                     let ticketsPrice =
                     lottery.getIn([
                         'lottery_options',
@@ -770,12 +771,10 @@ href=""
                               'amount'
                           ])
                         )
-                          .div(Math.pow(10, 9))
-                          .toFixed(10)
+                          /(Math.pow(10, precision))
                       : 0;
                     const ticketsTotal = lottery.getIn(['options', 'max_supply']);
                     const jackpot = ticketsPrice * lottery.getIn(['dynamic', 'current_supply']) * 0.5;
-                    ticketsPrice = Helper.currencyConvert(ticketsPrice);
 
                     let drawTypeContent;
 
@@ -889,7 +888,7 @@ href=""
                           </td>
                           {/* change BTC to asset.get('symbol') */}
                           <td id="tableCustom" className="td">
-                            {Helper.currencyConvert(jackpot)}
+                            {jackpot}
                           </td>
                         </Fade>
                         <td id="tableCustom" className="td text-center">

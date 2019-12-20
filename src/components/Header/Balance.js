@@ -20,9 +20,8 @@ export default class Balance extends Component {
 
     componentWillMount() {
         let initCurrency = StorageService.get('currency');
-
         if (Object.keys(StorageService.get('currency')).length === 0 && StorageService.get('currency').constructor === Object) {
-          initCurrency = 'BTC';
+          initCurrency = 'PPY';
         }
         this.changeCurrencyDisplay(initCurrency);
     }
@@ -84,16 +83,10 @@ export default class Balance extends Component {
                   arrow="true"
               >
                 <span className="d-flex justify-content-between">
-                <span className="ppy-symbol-style">BTC</span>
+                <span className="ppy-symbol-style">PPY</span>
                 <span className="balance-style">{this.props.balance}</span>
               </span>
               </Tooltip>
-            </div>
-            <div className="text-extra-bold d-flex justify-content-around currencies-row">
-              <span className={btcClasses} onClick={() => this.changeCurrencyDisplay('BTC')}>₿</span>
-              <span className={ppyClasses} onClick={() => this.changeCurrencyDisplay('PPY')}>PPY</span>
-              <span className={cadClasses} onClick={() => this.changeCurrencyDisplay('CAD')}>CAD</span>
-              <span className={usdClasses} onClick={() => this.changeCurrencyDisplay('USD')}>USD</span>
             </div>
           </div>
         );

@@ -49,7 +49,7 @@ export default class LotteryService {
                     owner: '1.3.0',
                     winning_tickets: winnerPercents,
                     ticket_price: {
-                        amount: new BigNumber(price).mul(Math.pow(10, 9)).toNumber(),
+                        amount: new BigNumber(price),
                         asset_id: '1.3.0'
                     },
                     end_date: Number(endDate), // seconds

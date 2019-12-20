@@ -34,6 +34,7 @@ function mapStateToProps(state) {
     fullLocation: state.router.location.pathname,
     userName: state.app.account.get('name'),
     balance: state.app.balance,
+    precision: state.app.coreAsset.get('precision'),
     state
   };
 }
@@ -221,6 +222,7 @@ class Header extends React.Component {
       setActiveDraws,
       userName,
       balance,
+      precision,
       dateFilterEnd,
       dateFilterStart,
       textFilter,
@@ -231,7 +233,7 @@ class Header extends React.Component {
 
     let userBalance =
       this.state.balance >= 0
-        ? new BigNumber(this.state.balance).div(Math.pow(10, 9)).toFixed(9)
+        ? new BigNumber(this.state.balance)/(Math.pow(10, precision))
         : 0;
 
     return (
