@@ -63,7 +63,7 @@ require('moment-countdown');
         isLogin: state.app.isLogin,
         currency: state.app.selectedCurrency,
         exchangeRates: state.app.exchangeRates,
-        precision: app.coreAsset.precision
+        precision: state.app.coreAsset.get('precision')
 
     }),
     dispatch => ({
@@ -607,7 +607,7 @@ class Landing extends React.Component {
                           lottery.getIn(['lottery_options', 'ticket_price', 'amount'])
                         )
                           .div(Math.pow(10, this.props.precision))
-                          .toFixed(10)
+                          .toFixed(this.props.precision)
                       : 0;
 
                         const ticketsTotal = lottery.getIn(['options', 'max_supply']);

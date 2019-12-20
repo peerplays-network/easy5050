@@ -27,7 +27,7 @@ import Translate from 'react-translate-component';
         lotteryObject: state.buyTicketsAside.get('lotteryObject'),
         location: state.router.location.pathname.split('/')[2],
         currency: state.app.selectedCurrency,
-        precision: state.app.coreAsset.precision
+        precision: state.app.coreAsset.get('precision')
     }),
     dispatch => ({
 
