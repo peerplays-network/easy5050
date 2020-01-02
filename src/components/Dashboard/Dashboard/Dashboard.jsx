@@ -882,13 +882,12 @@ href=""
 
                           <td id="tableCustom" className="td">
                             <span className="td__cell">
-                              {ticketsPrice}{' '}
-                              {asset ? '' : ''}
+                              {Helper.currencyConvert(ticketsPrice)}
                             </span>
                           </td>
                           {/* change BTC to asset.get('symbol') */}
                           <td id="tableCustom" className="td">
-                            {jackpot}
+                            {Helper.currencyConvert(jackpot)}
                           </td>
                         </Fade>
                         <td id="tableCustom" className="td text-center">

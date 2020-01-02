@@ -225,7 +225,7 @@ class Landing extends React.Component {
             const total = response.reduce((a, b) => a + b.amount, 0);
 
             this.setState({
-                totalRaised: total / 1000000000
+                totalRaised: this.getPrecision(total)
             });
 
         });
@@ -333,7 +333,7 @@ class Landing extends React.Component {
     }
 
     getActiveLotterySum(lotteries) {
-        return (lotteries.filter(lotto => lotto.get('lottery_options').get('is_active')).reduce((sum, x) => sum + x.get('lottery_options').get('ticket_price').get('amount') * x.getIn(['options', 'max_supply']), 0) / 2) / 1000000000;
+        return this.getPrecision((lotteries.filter(lotto => lotto.get('lottery_options').get('is_active')).reduce((sum, x) => sum + x.get('lottery_options').get('ticket_price').get('amount') * x.getIn(['options', 'max_supply']), 0) / 2));
     }
 
     sortByCurrentJP(lotteries) {
@@ -391,6 +391,11 @@ class Landing extends React.Component {
         }
     }
 
+    getPrecision(amount) {
+      //get precision from blockchain and apply
+      return Number(new BigNumber(amount).div(Math.pow(10, this.props.precision)).toFixed(this.props.precision))
+    }
+
     render() {
         if (this.state.loading) {
             return <Loader />;
@@ -436,24 +441,23 @@ class Landing extends React.Component {
             case 1:
                 drawFrames = (
                   <div className="section2-landing">
-                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(jackpotAry[0] / 1000000000) : null}</span></div>
+                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[0])) : null}</span></div>
                   </div>);
                 break;
 
             case 2:
                 drawFrames = (<div className="section2-landing">
-                  <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(jackpotAry[0] / 1000000000) : null}</span></div>
-                  <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[1].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 1 && benefactorObj2 ? <Tooltip title={benefactorObj2.get('name')}>{benefactorObj2.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[1] != null ? Helper.formattedCurrencyConvert(jackpotAry[1] / 1000000000) : null}</span></div>
+                  <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[0])) : null}</span></div>
+                  <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[1].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 1 && benefactorObj2 ? <Tooltip title={benefactorObj2.get('name')}>{benefactorObj2.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[1] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[1])) : null}</span></div>
                 </div>);
                 break;
 
             default:
                 drawFrames = (
                   <div className="section2-landing">
-
-                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(jackpotAry[0] / 1000000000) : null}</span></div>
-                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[1].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 1 && benefactorObj2 ? <Tooltip title={benefactorObj2.get('name')}>{benefactorObj2.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[1] != null ? Helper.formattedCurrencyConvert(jackpotAry[1] / 1000000000) : null}</span></div>
-                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[2].get('id'))}><span className="drawTxt-landing" >{highlightedDraws.length > 2 && benefactorObj3 ? <Tooltip title={benefactorObj3.get('name')}>{benefactorObj3.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[2] != null ? Helper.formattedCurrencyConvert(jackpotAry[2] / 1000000000) : null}</span></div>
+                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[0].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 0 && benefactorObj ? <Tooltip title={benefactorObj.get('name')}>{benefactorObj.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[0] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[0])) : null}</span></div>
+                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[1].get('id'))}><span className="drawTxt-landing">{highlightedDraws.length > 1 && benefactorObj2 ? <Tooltip title={benefactorObj2.get('name')}>{benefactorObj2.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[1] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[1])) : null}</span></div>
+                    <div className="frameImg-landing" onClick={this.openInfoAndShowDetails.bind(this, highlightedDraws[2].get('id'))}><span className="drawTxt-landing" >{highlightedDraws.length > 2 && benefactorObj3 ? <Tooltip title={benefactorObj3.get('name')}>{benefactorObj3.get('name')}</Tooltip> : ''}</span><span className="featuredJackpot-landing">{jackpotAry[2] != null ? Helper.formattedCurrencyConvert(this.getPrecision(jackpotAry[2])) : null}</span></div>
                   </div>);
                 break;
 

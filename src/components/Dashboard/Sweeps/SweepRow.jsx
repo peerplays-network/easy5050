@@ -101,6 +101,7 @@ class SweepRow extends React.Component {
           jackpot = ticketsPrice * lottoFromHash.getIn(['dynamic', 'current_supply']) * 0.5;
       }
         jackpot = Helper.currencyConvert(jackpot);
+        const ticketPrice = Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10));
         const endingOnSoldout =
     lottoFromHash &&
     lottoFromHash.getIn(['lottery_options', 'ending_on_soldout']) !== undefined
@@ -189,7 +190,7 @@ class SweepRow extends React.Component {
               {drawTypeContent}
             </td>
             <td id="tableCustom" className="td">
-              {Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10))}
+              {Helper.currencyConvert(ticketPrice)}
             </td>
             <td id="tableCustom" className="td">{jackpot}</td>
 

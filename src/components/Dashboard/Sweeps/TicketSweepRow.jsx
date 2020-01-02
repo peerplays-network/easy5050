@@ -80,6 +80,7 @@ const TicketSweepRow = ({
 
 
   jackpot = Helper.currencyConvert(jackpot);
+  const ticketPrice = Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)));
 
   const endingOnSoldout =
     lottoFromHash &&
@@ -179,7 +180,7 @@ const TicketSweepRow = ({
         {drawTypeContent}
       </td>
       <td id="tableCustom" className="td">
-        {Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)))}
+        {Helper.currencyConvert(ticketPrice)}
       </td>
       <td id="tableCustom" className="td">{jackpot}</td>
 

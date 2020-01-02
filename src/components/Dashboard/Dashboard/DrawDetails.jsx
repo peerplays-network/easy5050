@@ -174,13 +174,9 @@ class DrawDetails extends React.Component {
 
   addMantissaZeros(num) {
 
-    let zeros = (-Math.floor( Math.log(num) / Math.log(10) + 1))
-
-    if(zeros < 8 && zeros> 0) {
+    let zeros = -Math.floor( Math.log(num) / Math.log(10) + 1);
+    if(zeros < 8 && zeros > 0) {
       return "0".repeat(zeros)
-    }
-    else {
-      return -1
     }
   }
 
@@ -205,6 +201,18 @@ class DrawDetails extends React.Component {
     return onlyNums;
 }
 
+  displayPriceFeature = (number, mantissa, jackpot, units) => {
+    return (<span className="pricefeature-dd" >
+              <Odometer value={number} duration={ 3000 } format="d"/>
+              {jackpot !== 0 ? <React.Fragment>
+                <span className="" style={{verticalAlign: "middle"}}>.</span>
+                <span>{this.addMantissaZeros(jackpot)}</span>
+                <Odometer value={mantissa} duration={ 3000 } format="d"/>
+              </React.Fragment> : null}
+              <span style={{color: "#edcb61",marginLeft: "10px","verticalAlign": "-2px"}}>{units}</span>
+            </span>
+          );
+  }
 
     render() {
         let buyTicketsContent = ( <span>
@@ -373,10 +381,12 @@ class DrawDetails extends React.Component {
           jackpot = 0
         }
         
+        jackpot = Helper.convertWithoutUnits(jackpot);
+
         let number = (!!jackpot.toString().split('.')[0]) ? jackpot.toString().split('.')[0] : "0"
         let mantissa = (!!jackpot.toString().split('.')[1]) ? jackpot.toString().split('.')[1] : "0"
 
-        mantissa = typeof(mantissa) === 'string' ? mantissa.replace(/^0+/, '') : "0"//NOT WORKING???
+        mantissa = typeof(mantissa) === 'string' ? mantissa.replace(/^0+/, '') : "0"
 
         if(!this.props.open) {
           number = 9;
@@ -394,7 +404,7 @@ class DrawDetails extends React.Component {
             <div className="frameImg-Detail pull-left">
 
                 <div className="drawTxtRoller-Detail"><Marquee loop={true} trailing={5000} hoverToStop={true} text={bName} /></div>
-                <span className="pricefeature-dd" ><Odometer value={number} duration={ 3000 } format="d"/><span className="" style={{verticalAlign: "middle"}}>.</span><span>{this.addMantissaZeros(jackpot) !== -1 ? <Odometer value={this.addMantissaZeros(jackpot)} duration={3000} format="d"/> : null}</span><Odometer value={mantissa} duration={ 3000 } format="d"/><span style={{color: "#edcb61",marginLeft: "10px","verticalAlign": "-2px"}}>{units}</span></span>
+                {this.displayPriceFeature(number, mantissa, jackpot, units)}
                 
                 <table className="resolution-Detail-table">
                     <tbody>
@@ -448,7 +458,7 @@ class DrawDetails extends React.Component {
                     position="right"
                     arrow
                     >
-                    <span className="yellow-dd ml-3"> {ticketsPrice} </span>
+                    <span className="yellow-dd ml-3"> {Helper.currencyConvert(ticketsPrice)} </span>
                   </Tooltip>
                 </div>
               </Fade>
