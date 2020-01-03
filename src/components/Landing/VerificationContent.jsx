@@ -47,7 +47,8 @@ class VerificationContent extends Component {
     let winner = this.props.verificationData.winner;
 
     const verifyModalStyle = {
-      height: 200,
+      height: 225,
+      width: 450,
       backgroundColor: 'black',
       textAlign: 'left'
     };
