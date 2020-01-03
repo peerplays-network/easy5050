@@ -76,6 +76,7 @@ class DrawForm extends React.Component {
   }
 
   render() {
+
     const createDrawStyle = {
       height: 'auto',
       top: '1%',
@@ -239,7 +240,6 @@ class DrawForm extends React.Component {
 export default reduxForm({
   form: 'drawApplicationForm',
   validate: (values, props) => {
-
     let requiredFields = constants.REQUIRED_FIELDS;
     const errors = {};
     if (values.resolution === props.initialValues.resolution) {
@@ -264,7 +264,9 @@ export default reduxForm({
 
     return errors;
   },
-  shouldError: ({ props }) => !props.valid && !props.error,
+  shouldError: ({ props }) => {
+    return !props.pristine;
+  },
   onSubmit: (values, dispatch) => {
     let type = 0;
 
@@ -295,7 +297,6 @@ export default reduxForm({
       drawType: type
     };
     descriptionObj = JSON.stringify(descriptionObj);
-
     let formattedValues = JSON.parse(JSON.stringify(values));
     formattedValues.description = descriptionObj;
     formattedValues.name = Helper.randomizeLottoName();

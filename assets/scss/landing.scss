@@ -82,7 +82,8 @@
 .header-verify-landing {
   font-size: 16px;
   font-weight:bold;
-  color: white
+  color: white;
+  white-space: nowrap;
 }
 
 .section-landing, .section2-landing {
@@ -440,4 +441,8 @@
   box-shadow: 0px 0px 8px 1px rgba(21, 139, 100, 0.7);
   top: 0.8em;
   right: -11%;
+}
+
+.easy5050 {
+  width: 174px;
 }

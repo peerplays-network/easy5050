@@ -8,7 +8,7 @@ class Helper {
 
     static currencyConvert(val) { // returns a string
 
-        const convertTo = StorageService.get('currency') || 'BTC';
+        const convertTo = StorageService.get('currency');
         let rates = {usd: constants.USD, cad: constants.CAD};
 
         if (StorageService.get('rates').cad && StorageService.get('rates').usd) {

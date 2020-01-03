@@ -26,7 +26,8 @@ import Translate from 'react-translate-component';
         benefactorsById: state.buyTicketsAside.get('benefactorsById'),
         lotteryObject: state.buyTicketsAside.get('lotteryObject'),
         location: state.router.location.pathname.split('/')[2],
-        currency: state.app.selectedCurrency
+        currency: state.app.selectedCurrency,
+        precision: state.app.coreAsset.get('precision')
     }),
     dispatch => ({
 
@@ -94,7 +95,6 @@ class RecentWinnersTable extends Component {
                   <th scope="col">
                     <span className="Col-Header"><Translate content="landing.winner-paid" /></span>
                   </th>
-
                   <th className="th">
                     <span className="Col-Header"><Translate content="landing.verification" /></span>
                   </th>
@@ -105,7 +105,7 @@ class RecentWinnersTable extends Component {
                 {this.props.data.slice(0, 5).map((data, index) => {
                     const lottery = lotteriesByHash.get(data.lotteryId);
                     const drawName = JSON.parse(lottery.getIn(['options', 'description'])).lottoName;
-                    const amount = new BigNumber(data.amount).div(Math.pow(10, 9)).toFixed(10);
+                    const amount = new BigNumber(data.amount).div(Math.pow(10, this.props.precision)).toFixed(10);
 
                     const verificationData = {drawName, blockNum: data.blockNum, winner: data.winner, id: data.lotteryId};
                     return (

@@ -7,9 +7,9 @@ import constants from 'constants/createDraw';
 
 export default class LotteryService {
     static createNewLottery(lotteryParams, state) {
-
         let { benefactors,benefactorId, winnerPercents, name, price, endDate, tickets, resolution, description} = LotteryService.formValues(lotteryParams);
         const ownerId = state.app.account.get('id');
+        const precision = state.app.coreAsset.get('precision');
 
         //adjust for single benefactor
         let singleBenefactor = [{name: lotteryParams.benefactorname, id: lotteryParams.benefactorid, percent: 50}];
@@ -49,7 +49,7 @@ export default class LotteryService {
                     owner: '1.3.0',
                     winning_tickets: winnerPercents,
                     ticket_price: {
-                        amount: new BigNumber(price).mul(Math.pow(10, 9)).toNumber(),
+                        amount: new BigNumber(price).mul(Math.pow(10, precision)).toNumber(),
                         asset_id: '1.3.0'
                     },
                     end_date: Number(endDate), // seconds
