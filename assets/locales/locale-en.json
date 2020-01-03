@@ -205,7 +205,7 @@
     "note_3": "For all other PPY token redemptions, please \"sign up\" below, and then go to settings/balance claims and enter your redemption key."
   },
   "creating_lottery": {
-    "ticket_price": "Ticket Price (BTC):",
+    "ticket_price": "Ticket Price (PPY):",
     "resolution_conditions": "Resolution Conditions:",
     "draw_resolution": "Draw Resolution",
     "draw_resolution_date_time": "Draw Resolution Date and Time:",

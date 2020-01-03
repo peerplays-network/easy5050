@@ -17,9 +17,8 @@ class LotteryActions {
         return (dispatch, getState) => new Promise((resolve, reject) => {
             const state = getState();
             const registeredFields = Object.entries(state.form.drawApplicationForm.registeredFields).filter(field => (~field[0].indexOf('benefactor') || ~field[0].indexOf('winnerPercent')) && !~field[0].indexOf('0'));
-
             LotteryService.createNewLottery(lotteryParams, state)
-            .then(() => {
+            .then((val) => {
                 dispatch(reset('drawApplicationForm'));
 
                 registeredFields.forEach(field => {

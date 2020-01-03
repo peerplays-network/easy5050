@@ -297,7 +297,6 @@ export default reduxForm({
       drawType: type
     };
     descriptionObj = JSON.stringify(descriptionObj);
-
     let formattedValues = JSON.parse(JSON.stringify(values));
     formattedValues.description = descriptionObj;
     formattedValues.name = Helper.randomizeLottoName();

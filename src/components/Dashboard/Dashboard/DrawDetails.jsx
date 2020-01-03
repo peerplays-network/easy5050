@@ -36,6 +36,7 @@ import { isNull } from 'util';
       benefactorsById: state.buyTicketsAside.get('benefactorsById'),
       creatorsByHash: state.dashboard.get('creatorsByHash'),
       isLogin: state.app.isLogin,
+      precision: state.app.coreAsset.get('precision')
 
   }),
   dispatch => ({
@@ -121,7 +122,7 @@ class DrawDetails extends React.Component {
                         } else if (/current_supply < lottery->options.max_supply/.test(errStr)) {
                             errStr = counterpart.translate('errors.tickets_left_for_sale');
                         } else if (/Insufficient Balance/.test(errStr)) {
-                            const amount = Helper.currencyConvert(new BigNumber(this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).div(Math.pow(10, 9)).toFixed(10));
+                            const amount = new BigNumber(this.state.quantity * this.props.lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount'])).div(Math.pow(10, this.props.precision));
                             errStr = counterpart.translate('errors.dont_have_enough_funds', {amount, symbol: StorageService.get('currency') === 'BTC'|| StorageService.get('currency') === 'PPY' ? '' : StorageService.get('currency')}); // replace 'BTC' -> symbol
                         } else if (/tickets_to_buy/.test(errStr)) {
     
@@ -173,13 +174,9 @@ class DrawDetails extends React.Component {
 
   addMantissaZeros(num) {
 
-    let zeros = (-Math.floor( Math.log(num) / Math.log(10) + 1))
-
-    if(zeros < 8 && zeros> 0) {
+    let zeros = -Math.floor( Math.log(num) / Math.log(10) + 1);
+    if(zeros < 8 && zeros > 0) {
       return "0".repeat(zeros)
-    }
-    else {
-      return -1
     }
   }
 
@@ -204,6 +201,18 @@ class DrawDetails extends React.Component {
     return onlyNums;
 }
 
+  displayPriceFeature = (number, mantissa, jackpot, units) => {
+    return (<span className="pricefeature-dd" >
+              <Odometer value={number} duration={ 3000 } format="d"/>
+              {jackpot !== 0 ? <React.Fragment>
+                <span className="" style={{verticalAlign: "middle"}}>.</span>
+                <span>{this.addMantissaZeros(jackpot)}</span>
+                <Odometer value={mantissa} duration={ 3000 } format="d"/>
+              </React.Fragment> : null}
+              <span style={{color: "#edcb61",marginLeft: "10px","verticalAlign": "-2px"}}>{units}</span>
+            </span>
+          );
+  }
 
     render() {
         let buyTicketsContent = ( <span>
@@ -254,7 +263,9 @@ class DrawDetails extends React.Component {
 
             // Ticket Price
             ticketsPrice =
-            lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount']) / 1000000000;
+            lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount']);
+            
+            ticketsPrice = Number(ticketsPrice/(Math.pow(10, this.props.precision)).toFixed(this.props.precision))
 
             if (lotteryObject.getIn(['options', 'description'])) { // Check for null first, because that will crash the app
                 drawName = lotteryObject.getIn(['options', 'description']) == 'desc' || !Helper.IsJsonString(lotteryObject.getIn(['options', 'description'])) || lotteryObject.getIn(['options', 'description']) == '' ? drawName = lotteryObject.get('symbol') : drawName = JSON.parse(lotteryObject.getIn(['options', 'description'])).lottoName;
@@ -285,7 +296,7 @@ class DrawDetails extends React.Component {
                                 break;
                             }
 
-                        drawDesc = counterpart.translate("draw_details.default_description", {price:Helper.currencyConvert(ticketsPrice), benefactor: bName, drawTypeStr: blankDrawTypeStr});
+                        drawDesc = counterpart.translate("draw_details.default_description", {price: ticketsPrice, benefactor: bName, drawTypeStr: blankDrawTypeStr});
                     }
   
                 }
@@ -366,15 +377,16 @@ class DrawDetails extends React.Component {
             creatorName = '';
         }
 
-        jackpot = Helper.convertWithoutUnits(jackpot)
         if(isNaN(jackpot)) {
           jackpot = 0
         }
         
+        jackpot = Helper.convertWithoutUnits(jackpot);
+
         let number = (!!jackpot.toString().split('.')[0]) ? jackpot.toString().split('.')[0] : "0"
         let mantissa = (!!jackpot.toString().split('.')[1]) ? jackpot.toString().split('.')[1] : "0"
 
-        mantissa = typeof(mantissa) === 'string' ? mantissa.replace(/^0+/, '') : "0"//NOT WORKING???
+        mantissa = typeof(mantissa) === 'string' ? mantissa.replace(/^0+/, '') : "0"
 
         if(!this.props.open) {
           number = 9;
@@ -392,7 +404,7 @@ class DrawDetails extends React.Component {
             <div className="frameImg-Detail pull-left">
 
                 <div className="drawTxtRoller-Detail"><Marquee loop={true} trailing={5000} hoverToStop={true} text={bName} /></div>
-                <span className="pricefeature-dd" ><Odometer value={number} duration={ 3000 } format="d"/><span className="" style={{verticalAlign: "middle"}}>.</span><span>{this.addMantissaZeros(jackpot) !== -1 ? <Odometer value={this.addMantissaZeros(jackpot)} duration={3000} format="d"/> : null}</span><Odometer value={mantissa} duration={ 3000 } format="d"/><span style={{color: "#edcb61",marginLeft: "10px","verticalAlign": "-2px"}}>{units}</span></span>
+                {this.displayPriceFeature(number, mantissa, jackpot, units)}
                 
                 <table className="resolution-Detail-table">
                     <tbody>
@@ -442,12 +454,12 @@ class DrawDetails extends React.Component {
                 <div className="d-flex align-items-center">
                   <span className="header-verify-dd"><Translate content="dashboard.ticket-price-lbl" /></span>
                   <Tooltip
-                    title={Helper.currencyConvert(ticketsPrice)}
+                    title={ticketsPrice}
                     position="right"
                     arrow
                     >
-                    <span className="yellow-dd ml-3"> {Helper.currencyConvert(ticketsPrice)}</span>
-                  </Tooltip>  
+                    <span className="yellow-dd ml-3"> {Helper.currencyConvert(ticketsPrice)} </span>
+                  </Tooltip>
                 </div>
               </Fade>
             </div>

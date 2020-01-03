@@ -10,8 +10,6 @@ class BuyTicketsService {
     static buyTickets(params, keys) {
 //TODO::rm
 
-
-
         return ;
 
         let { benefactors, winnerPercents, name, price, endDate, tickets, resolution } = LotteryService.formValues(lotteryParams);

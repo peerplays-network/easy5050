@@ -209,7 +209,7 @@
 
 
   "creating_lottery": {
-    "ticket_price": "Prix ??du billet (BTC):",
+    "ticket_price": "Prix ??du billet (PPY):",
     "resolution_conditions": "Conditions de résolution:",
     "draw_resolution": "Dessiner la résolution",
     "draw_resolution_date_time": "Tirage Date et heure de résolution:",
