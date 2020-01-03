@@ -321,11 +321,7 @@ class DrawDetails extends React.Component {
             if (benefactorObj) {
             bName = benefactorObj.get('name');
             }
-            if(!this.props.open) {
-              ticketsRemaining = 1
-            }
-            if(!!ticketsRemaining === false)
-              ticketsRemaining = 1
+
             //Draw Type Logic
             if (endDate) {
             switch (drawType) {
