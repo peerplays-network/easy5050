@@ -1,0 +1,8 @@
+{
+    "BLOCKCHAIN_URL": "",
+    "FAUCET_URLS": [
+        ""
+    ],
+    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
+    "ELECTRON": false
+}
