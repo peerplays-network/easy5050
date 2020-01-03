@@ -25,7 +25,7 @@ import Balance from './Balance';
 
 import Pagination from 'components/elements/Pagination/PaginationContainer';
 
-import imgLogo from '../../../assets/images/5050Logo-70.png';
+import imgLogo from '../../../assets/images/Easy5050.png';
 
 function mapStateToProps(state) {
   return {
@@ -245,7 +245,7 @@ class Header extends React.Component {
           >
             <div className="logo col-md-3">
               <Link to="/home">
-                <img src={imgLogo} />
+                <img className="easy5050" src={imgLogo} />
               </Link>
             </div>
             <div className="col-md-2 offset-md-7 d-flex flex-column">
