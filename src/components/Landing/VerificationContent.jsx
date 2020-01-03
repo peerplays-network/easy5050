@@ -85,7 +85,15 @@ class VerificationContent extends Component {
               <Fade bottom duration={2000}>
                 <div className="d-flex flex-nowrap">
                   <span className="header-verify-landing"><Translate content="landing.verified-drawname" /></span>
-                  <span className="yellow-landing truncated ml-3"> {drawName}</span>
+                  <span className="yellow-landing truncated ml-3"> 
+                  <Tooltip
+                      title={drawName}
+                      position="bottom"
+                      arrow
+                    >
+                    {drawName}
+                  </Tooltip>
+                  </span>
                 </div>
               </Fade>
               <Fade bottom duration={2500}>
