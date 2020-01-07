@@ -68,9 +68,6 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [{
                         loader: 'css-loader',
-                        options: {
-                            minimize: true
-                        }
                     }, {
                         loader: 'sass-loader',
                         options: {
@@ -140,7 +137,6 @@ module.exports = {
             compress: {
                 warnings: false
             },
-            minimize: true,
             sourceMap: false
         }),
         new PreloadWebpackPlugin({
