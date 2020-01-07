@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import imgLogo from '../../../assets/images/5050Logo-70.png';
+import imgLogo from '../../../assets/images/Easy5050.png';
 import LogInPage from '../Auth/LogInPage';
 import { NavLink } from 'react-router-dom';
 import SlidingMenu from '../elements/Pagination/SlidingMenu';
@@ -50,7 +50,7 @@ class LandingHeader extends React.Component {
                 <div className="col-md-5 d-flex justify-content-left margin-zero">
                 <div className="logo col-md-3">
                 <NavLink to={`/home`} activeClassName="active">
-                <img src={imgLogo} />
+                <img className="easy5050" src={imgLogo} />
           </NavLink>
             </div>
                 </div>

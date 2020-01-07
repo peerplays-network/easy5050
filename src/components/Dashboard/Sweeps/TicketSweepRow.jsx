@@ -65,7 +65,7 @@ const TicketSweepRow = ({
     assetId && assetsByHash !== undefined ? assetsByHash.get(assetId) : '';
   const ticketsPrice =
     amount && asset
-      ? new BigNumber(amount).div(Math.pow(10, 9)).toFixed(10)
+      ? new BigNumber(amount).div(Math.pow(10, coreAssetPrecision))
       : 0;
   const ticketsTotal =
     lottoFromHash &&
@@ -80,6 +80,7 @@ const TicketSweepRow = ({
 
 
   jackpot = Helper.currencyConvert(jackpot);
+  const ticketPrice = Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)));
 
   const endingOnSoldout =
     lottoFromHash &&
@@ -179,7 +180,7 @@ const TicketSweepRow = ({
         {drawTypeContent}
       </td>
       <td id="tableCustom" className="td">
-        {Helper.currencyConvert(Number(new BigNumber(amount).div(Math.pow(10, 9)).toFixed(10)))}
+        {Helper.currencyConvert(ticketPrice)}
       </td>
       <td id="tableCustom" className="td">{jackpot}</td>
 
