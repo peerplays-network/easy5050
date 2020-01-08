@@ -17,28 +17,26 @@ const PATHS = {
 };
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
-
 module.exports = {
     entry: PRODUCTION ?
-    // [
-    //     'babel-polyfill',
-    //     path.resolve(PATHS.src, 'index.jsx')
-    // ] :
-    {
-        main: [
+        // [
+        //     'babel-polyfill',
+        //     path.resolve(PATHS.src, 'index.jsx')
+        // ] :
+        {
+            main: [
+                'babel-polyfill',
+                path.resolve(PATHS.src, 'index.jsx')
+            ],
+            moment: ['moment'],
+            react: ['react'],
+            jquery: ['jquery']
+        } : [
             'babel-polyfill',
-            path.resolve(PATHS.src, 'index.jsx')
+            'webpack-dev-server/client',
+            'webpack/hot/only-dev-server',
+            path.resolve(PATHS.src, 'hotReload.jsx')
         ],
-        moment: ['moment'],
-        react: ['react'],
-        jquery: ['jquery']
-    } :
-    [
-        'babel-polyfill',
-        'webpack-dev-server/client',
-        'webpack/hot/only-dev-server',
-        path.resolve(PATHS.src, 'hotReload.jsx')
-    ],
     output: {
         publicPath: '/',
         chunkFilename: '[name]-chunk.js',
@@ -55,9 +53,21 @@ module.exports = {
         publicPath: '/',
         historyApiFallback: true,
     },
+    optimization: {
+        minimize: false,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    test: 'vendor',
+                    name: 'vendor',
+                    enforce: true
+                }
+            }
+        }
+    },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(js|jsx)$/,
                 include: [PATHS.src],
                 use: 'babel-loader'
@@ -86,7 +96,7 @@ module.exports = {
                 loader: 'file-loader?name=images/[name].[ext]'
             },
             {
-                test: /\.(woff|eot|ttf)$/, 
+                test: /\.(woff|eot|ttf)$/,
                 loader: 'file-loader?name=fonts/[name].[ext]'
             }
         ]
@@ -133,51 +143,9 @@ module.exports = {
         )
     ].concat(PRODUCTION ? [
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            sourceMap: false
-        }),
         new PreloadWebpackPlugin({
             rel: 'preload',
             as: 'script',
-            include: 'all',
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendors',
-            filename: 'vendors.js',
-            minChunks({ context }) {
-                return context &&
-                    context.includes('node_modules') &&
-                    !context.includes('jquery') &&
-                    !context.includes('react') &&
-                    !context.includes('redux') &&
-                    !context.includes('moment');
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'moment',
-            chunks: ['moment'],
-            minChunks({ context }) {
-                return context && context.includes('moment');
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'jquery',
-            chunks: ['jquery'],
-            minChunks({ context }) {
-                return context && context.includes('jquery');
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'react',
-            chunks: ['react'],
-            minChunks({ context }) {
-                return context &&
-                    (context.includes('react') ||
-                    context.includes('redux'));
-            }
         })
     ] : [
         new webpack.HotModuleReplacementPlugin(),
@@ -187,15 +155,13 @@ module.exports = {
                 process.stdout.clearLine();
                 process.stdout.cursorTo(0);
                 process.stdout.write(`${(percentage * 100).toFixed(2)}% ${msg}`);
-            }
-            catch (error) {
+            } catch (error) {
                 //console.error(error);
             }
-        })//,
+        }) //,
         //new BundleAnalyzerPlugin()
     ]),
     performance: {
         hints: false
     },
 };
-
