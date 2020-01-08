@@ -6,7 +6,6 @@ webpack/
 *.woff
 *.ttf
 *.eot
-*.png
 *.svg
 *.css
 *.map
