@@ -84,7 +84,7 @@
     "moment": "^2.20.1",
     "moment-countdown": "0.0.3",
     "offline-plugin": "^5.0.7",
-    "peerplaysjs-lib": "git+ssh://git@github.com:peerplays-network/peerplaysjs-lib.git#5050-beatrice-merge",
+    "peerplaysjs-lib": "peerplays-network/peerplaysjs-lib#5050-beatrice-merge",
     "prop-types": "^15.6.0",
     "randomstring": "^1.1.5",
     "react": "^16.5.0",
