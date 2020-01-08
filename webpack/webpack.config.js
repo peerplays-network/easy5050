@@ -54,7 +54,6 @@ module.exports = {
         historyApiFallback: true,
     },
     optimization: {
-        minimize: false,
         splitChunks: {
             cacheGroups: {
                 vendor: {
