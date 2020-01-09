@@ -54,6 +54,7 @@ module.exports = {
         historyApiFallback: true,
     },
     optimization: {
+        minimize: PRODUCTION,
         splitChunks: {
             cacheGroups: {
                 vendor: {
@@ -121,13 +122,12 @@ module.exports = {
                 NODE_ENV: PRODUCTION ? JSON.stringify('production') : JSON.stringify('development')
             },
             APP_PACKAGE_VERSION: JSON.stringify(packageJSON.version),
-            SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME: JSON.stringify(options.SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME),
             APP_VERSION: JSON.stringify(git.tag()),
             __ELECTRON__: !!options.electron,
-            CORE_ASSET: JSON.stringify('PPY'),
+            CORE_ASSET: JSON.stringify(options.CORE_ASSET),
+            CORE_ASSET_ID: JSON.stringify(options.CORE_ASSET_ID),
             BLOCKCHAIN_URL: JSON.stringify(options.BLOCKCHAIN_URL),
             FAUCET_URLS: JSON.stringify([options.FAUCET_URLS]),
-            BITSHARES_WS: JSON.stringify(options.BITSHARES_WS),
         }),
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({

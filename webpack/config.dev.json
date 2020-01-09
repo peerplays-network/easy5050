@@ -3,6 +3,8 @@
     "FAUCET_URLS": [
         ""
     ],
-    "SOFTWARE_UPDATE_REFERENCE_ACCOUNT_NAME": "nathan",
+    "CORE_ASSET": "TEST",
+    "CORE_ASSET_ID": "1.3.0",
+
     "ELECTRON": false
 }
