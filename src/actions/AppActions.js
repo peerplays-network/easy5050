@@ -157,10 +157,9 @@ function logoutAction() {
 class AppActions {
   static init() {
     return (dispatch, getState) => {
-      ChainConfig.setPrefix("TEST");
-      ChainStore.getObject("1.3.0");
+      ChainConfig.setPrefix(CONFIG.CORE_ASSET);
+      ChainStore.getObject(CONFIG.CORE_ASSET_ID);
       ChainStore.setDispatchFrequency(0);
-
       Apis.instance(CONFIG.BLOCKCHAIN_URL, true).init_promise.then(res => {
         try {
           const db = iDB.init_instance(
