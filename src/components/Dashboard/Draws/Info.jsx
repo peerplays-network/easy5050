@@ -578,7 +578,7 @@ class Info extends React.Component {
       }
     }
 
-    if (value > 10) {
+    if (value > 10000) {
       return previousValue
     }
 

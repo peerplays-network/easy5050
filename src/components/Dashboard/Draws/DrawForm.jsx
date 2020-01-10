@@ -7,6 +7,7 @@ import Translate from 'react-translate-component';
 import ModalActions from 'actions/ModalActions';
 import LotteryActions from 'actions/LotteryActions';
 
+import BigNumber from 'bignumber.js';
 import moment from 'moment';
 import constants from 'constants/createDraw';
 import Helper from './Helper';
@@ -22,6 +23,9 @@ import validation from './validation';
 
 @connect(
   state => ({
+    balance: state.app.balance,
+    coreAsset: state.app.coreAsset,
+    precision: state.app.coreAsset.get('precision'),
     commonFormError: state.form.drawApplicationForm.syncErrors
       ? state.form.drawApplicationForm.syncErrors.commonFormError
       : ''
@@ -35,6 +39,7 @@ class DrawForm extends React.Component {
     super(props);
 
     this.state = {
+      balanceError: false,
       continue: false
     };
     this.radioButtons = constants.RADIO_BUTTONS;
@@ -51,7 +56,14 @@ class DrawForm extends React.Component {
     const {
       commonFormError
     } = this.props;
-    if (!commonFormError) {
+
+    const errorBalance = this.displayInsufficientBalance();
+    const balance = new BigNumber(this.props.balance)/(Math.pow(10, this.props.precision));
+
+    if (balance < errorBalance) {
+      this.setState({balanceError: true});
+    } else if (!commonFormError) {
+      this.setState({balanceError: false});
       this.props.hide();
       this.hideModal();
       this.props.createNewLottery();
@@ -73,6 +85,11 @@ class DrawForm extends React.Component {
     this.props.hide();
     this.onResetForm();
     this.setState({ continue: false });
+  }
+
+  displayInsufficientBalance() {
+    const insufficientFunds = 20;
+    return insufficientFunds;
   }
 
   render() {
@@ -122,7 +139,7 @@ class DrawForm extends React.Component {
     );
 
     let imageDisplayed;
-
+    let displayInsufficientBalance = this.displayInsufficientBalance()
     this.state.continue === false ? (imageDisplayed = tutorialWizard1) : (imageDisplayed = tutorialWizard2);
 
     let modalContent = (
@@ -203,6 +220,10 @@ class DrawForm extends React.Component {
                   >
                     <Translate content="creating_lottery.create_draw" />
                   </button>
+                  {this.state.balanceError ?
+                    <span className="error__hint balance-error" id="error_submitError">{`Insufficient Funds! ${displayInsufficientBalance} PPY is needed`}</span>
+                      : null 
+                    }
                 </div>
               )}
             </div>
