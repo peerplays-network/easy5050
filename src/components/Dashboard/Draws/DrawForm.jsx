@@ -24,6 +24,7 @@ import validation from './validation';
 @connect(
   state => ({
     balance: state.app.balance,
+    lotteryCreationFee: state.app.lotteryCreationFee,
     coreAsset: state.app.coreAsset,
     precision: state.app.coreAsset.get('precision'),
     commonFormError: state.form.drawApplicationForm.syncErrors
@@ -88,7 +89,7 @@ class DrawForm extends React.Component {
   }
 
   displayInsufficientBalance() {
-    const insufficientFunds = 20;
+    const insufficientFunds = new BigNumber(this.props.lotteryCreationFee)/(Math.pow(10, this.props.precision))
     return insufficientFunds;
   }
 

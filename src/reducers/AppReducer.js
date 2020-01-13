@@ -44,6 +44,9 @@ const defaultState = {
   */
     coreAsset: null,
 
+    //creation fee (in ppy) for draw create
+    lotteryCreationFee: 0,
+
     /**
    * TODO::check
    */
@@ -99,6 +102,11 @@ export default function (state = defaultState, action) {
         return Object.assign({}, state, {
             coreAsset: action.coreAsset
         });
+
+    case ActionTypes.APP_SET_LOTTERY_CREATION_FEE:
+        return Object.assign({}, state, {
+            lotteryCreationFee: action.lotteryCreationFee
+        })
     /**
      * set displayed balance
      */
