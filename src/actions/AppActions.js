@@ -193,8 +193,9 @@ class AppActions {
                           dispatch(AppActions.setAppCoreAsset(asset));
                           return AccountChainRepository.getObject('2.0.0');
                         }).then((fees) => {
-                          const fee = fees.toJS().parameters.current_fees.parameters[77][1].lottery_asset
-                          dispatch(AppActions.setLotteryCreationFee(fee));
+                          const currentFees = fees.toJS().parameters.current_fees.parameters[77];
+                          const lotteryCreateFee = currentFees ? currentFees[1].lottery_asset : 2000000;
+                          dispatch(AppActions.setLotteryCreationFee(lotteryCreateFee));
                           success();
                         })
                         .catch(fail);
