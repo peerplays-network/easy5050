@@ -45,6 +45,34 @@ class AccountChainRepository {
         });
     }
 
+    static getObject(id, force = false, numRecursion = 0) {
+        let num = numRecursion;
+        return new Promise((resolve, reject) => {
+          if (num > MAX_RECURSION_ATTEMPTS) {
+            console.warn('[APP] MAX_RECURSION_ATTEMPTS Repository.getObject()');
+            return resolve(null);
+          }
+    
+          let object = ChainStore.getObject(id, force);
+    
+          if (object === null) {
+            return resolve(object);
+          }
+    
+          if (object) {
+            return resolve(object);
+          }
+    
+          setTimeout(() => {
+            num = num + 1;
+            this
+              .getObject(id, force, ++num)
+              .then((res) => resolve(res))
+              .catch((err) => reject(err));
+          }, 100);
+        });
+      }
+
     static getAccountBalance(fullAccount, assetType = '1.3.0') {
     // 1.3.0 = PPY
         return ChainStore.getAccountBalance(fullAccount, assetType);

@@ -63,6 +63,13 @@ function setAppCoreAssetAction(Asset) {
     coreAsset: Asset
   };
 }
+
+function setLotteryCreationFeeAction(fee) {
+  return {
+    type: ActionTypes.APP_SET_LOTTERY_CREATION_FEE,
+    lotteryCreationFee: fee
+  };
+}
 /**
  * Private Redux Action Creator (ActionTypes.APP_SET_SYNC_FAIL)
  *
@@ -184,6 +191,11 @@ class AppActions {
                       )
                         .then(asset => {
                           dispatch(AppActions.setAppCoreAsset(asset));
+                          return AccountChainRepository.getObject('2.0.0');
+                        }).then((fees) => {
+                          const currentFees = fees.toJS().parameters.current_fees.parameters[77];
+                          const lotteryCreateFee = currentFees ? currentFees[1].lottery_asset : 2000000;
+                          dispatch(AppActions.setLotteryCreationFee(lotteryCreateFee));
                           success();
                         })
                         .catch(fail);
@@ -358,6 +370,16 @@ class AppActions {
     return dispatch => {
       dispatch(setAppCoreAssetAction(asset));
     };
+  }
+
+  /**
+   * @param fee string
+   * @returns {Function}
+   */
+  static setLotteryCreationFee(fee) {
+    return dispatch => { 
+      dispatch(setLotteryCreationFeeAction(fee));
+    }
   }
 
   /**
