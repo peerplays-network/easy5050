@@ -286,13 +286,13 @@ class DrawDetails extends React.Component {
                     if (!drawDesc){
                         switch (drawType) {
                             case 'Ticket Based':   
-                                blankDrawTypeStr = counterpart.translate("draw_details.default_description_ticket", {ticketRem: ticketsRemaining});
+                                blankDrawTypeStr = ticketsRemaining > 0 ? counterpart.translate("draw_details.default_description_ticket", {ticketRem: ticketsRemaining}) : '';
                                 break;
                             case 'Time Based':
                                 blankDrawTypeStr = counterpart.translate("draw_details.default_description_time", {timeRem:Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long', day: '2-digit'}).format(endDate)});
                                 break;
                             case 'Ticket & Time Based':
-                                blankDrawTypeStr = counterpart.translate("draw_details.default_description_ticket-time", {ticketRem: ticketsRemaining, timeRem:Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long', day: '2-digit'}).format(endDate)});
+                                blankDrawTypeStr = counterpart.translate("draw_details.default_description_ticket-time", {ticketRem: ticketsRemaining > 0 ? ticketsRemaining : '', timeRem:Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long', day: '2-digit'}).format(endDate)});
                                 break;
                             }
 
