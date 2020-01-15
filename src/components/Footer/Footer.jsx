@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../../assets/scss/footer.css';
-import logo from '../../../assets/images/powerbypp.png';
+import logo from '../../../assets/images/Easy5050-text-bottom.png';
 
 
 class Footer extends Component {
@@ -26,7 +26,7 @@ class Footer extends Component {
                           <a href="https://www.youtube.com/channel/UC3LeI-oL5jTa5UAN7hF-xFQ"> <i className="fab fa-youtube fa-2x socialIcon-footer" /></a>
                         </div>
                       <br />
-                      <img src={logo} />
+                        <img className='easy5050-footer mb-2' src={logo} />
                     </div>
                   </div>
                       </footer>
