@@ -555,6 +555,10 @@ class Info extends React.Component {
       return previousValue;
     }
 
+    if (value < 1) {
+      return;
+    }
+
     const onlyNums = value.replace(/[^\d]/g, '');
     if (onlyNums.length <= 3) {
       return onlyNums;
@@ -677,6 +681,7 @@ class Info extends React.Component {
                 component={this.totalTickets}
                 label="creating_lottery.total_tickets"
                 placeholder="creating_lottery.enter_total_tickets"
+                type="number"
                 normalize={this.normalizeTicketField}
               />
             </div>
