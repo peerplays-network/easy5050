@@ -326,15 +326,13 @@ class DrawDetails extends React.Component {
             if (endDate) {
             switch (drawType) {
                 case 'Ticket Based':
-                    let nrWidth = ((ticketsRemaining + "").length * 8) + "px";
-                    nrWidth = !!nrWidth ? nrWidth : "8px"
-                    drawType = (<div><span className="colorYellow"> <i className="fas fa-ticket-alt" /> <span style={{display: "inline-flex", width:nrWidth*2, height:"18px"}}><Odometer value={ticketsRemaining} duration={3000} format="d"/></span> <Translate content="dashboard.tickets-remaining" /></span></div>);
+                    drawType = (<div><span className="colorYellow ticketRoller"> <i className="fas fa-ticket-alt" /> <span className='ticketAmount'><Odometer value={ticketsRemaining} duration={3000} format="d"/></span> <Translate content="dashboard.tickets-remaining" /></span></div>);
                     break;//<RenderInBrowser firefox only><span className="colorYellow"> <i className="fas fa-ticket-alt" /> <span>{ticketsRemaining}</span>  Tickets Remaining</span></RenderInBrowser>
                 case 'Time Based':
-                    drawType = (<span className="colorYellow"><i className="fas fa-ticket-alt" /> {ticketsRemaining} <i className="fas fa-hourglass-half" /> <Countdown dateTo={endDate} now={moment()} shortHand /> </span>);
+                    drawType = (<span className="colorYellow ticketRoller"><i className="fas fa-ticket-alt" /> {ticketsRemaining} <i className="fas fa-hourglass-half" /> <Countdown dateTo={endDate} now={moment()} shortHand /> </span>);
                     break;
                 case 'Ticket & Time Based':
-                    drawType = (<span className="colorYellow"><i className="fas fa-ticket-alt" /> {ticketsRemaining} <i className="fas fa-hourglass-half" /> <Countdown dateTo={endDate} now={moment()} shortHand /> </span>);
+                    drawType = (<span className="colorYellow ticketRoller"><i className="fas fa-ticket-alt" /> {ticketsRemaining} <i className="fas fa-hourglass-half" /> <Countdown dateTo={endDate} now={moment()} shortHand /> </span>);
                     break;
                 }
                 drawTypeContent = (<span className="td__cell"><span className="muted">{drawType}</span></span>);
