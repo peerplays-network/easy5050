@@ -127,6 +127,19 @@ class Helper {
         return text;
     }
 
+    static replaceLotteryTypes(name) {
+        name = name.toString();
+        if (name.indexOf('lottery_end') > -1) {
+            return 'end_of_lottery' + name.split('lottery_end').join("")
+        } else if(name.indexOf('lottery_new') > -1) {
+            return 'new_draw' + name.split('lottery_new').join("")
+        } else if(name.indexOf('lottery_reward') > -1) {
+            return 'lottery_winnings' + name.split('lottery_reward').join("")
+        } else {
+            return name
+        }
+    }
+
     static IsJsonString(str) {
         if (str.length <= 15) {
             return false;

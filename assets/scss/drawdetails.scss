@@ -55,6 +55,16 @@
   color: var(--draw-details-text-color);
 }
 
+.ticketRoller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticketAmount {
+  padding: 0 2px;
+}
+
 .descriptionTxt-dd {
   font-size: 20px;
   margin-left: 340px;
@@ -94,6 +104,8 @@
 
 .pricefeature-dd {
   position: absolute;
+  align-items: center;
+  display: flex;
   top: 66%;
   left: 80px;
   /*font-family: 'AGENCYR' !important;*/
