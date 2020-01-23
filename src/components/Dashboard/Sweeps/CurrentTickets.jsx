@@ -76,12 +76,13 @@ function mapStateToProps(state) {
             case 'dateRange':
               let sDate = f.val.start_date,
                 eDate = f.val.end_date;
+                const momentObject = moment.utc(lottoEnd).local();
 
               passed =
               passed &&
               ((eDate === undefined ||
-                moment(lottoEnd).isBefore(`${eDate } 23:59:59`)) &&
-                (sDate === undefined || moment(lottoEnd).isAfter(sDate)));
+                moment(momentObject).isBefore(`${eDate } 23:59:59`)) &&
+                (sDate === undefined || moment(momentObject).isAfter(sDate)));
 
               break;
         }
