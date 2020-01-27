@@ -1,6 +1,6 @@
 {
   "name": "5050",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "5050Labs DApp - built on Peerplays",
   "scripts": {
     "start-dev": "export NODE_ENV=development&&export NODE_CONFIG=dev&&webpack-dev-server --config webpack/webpack.config.js",
