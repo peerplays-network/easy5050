@@ -1,4 +1,14 @@
-image: node:8.16.1
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+
+variables:
+  SAST_ANALYZER_IMAGE_PREFIX: "registry.gitlab.com/gitlab-org/security-products/analyzers"
+  SAST_DEFAULT_ANALYZERS: "eslint, secrets"
+  SAST_ANALYZER_IMAGE_TAG: 2
+  SAST_DISABLE_DIND: "true"
+  SCAN_KUBERNETES_MANIFESTS: "false"
+
+image: node:12.2.0
 
 stages:
   - test
@@ -17,3 +27,91 @@ build:
     - npm run-script build
   tags:
     - docker
+
+license_management:
+  stage: test
+  image:
+    name: "registry.gitlab.com/gitlab-org/security-products/license-management:$CI_SERVER_VERSION_MAJOR-$CI_SERVER_VERSION_MINOR-stable"
+    entrypoint: [""]
+  variables:
+    SETUP_CMD: $LICENSE_MANAGEMENT_SETUP_CMD
+  allow_failure: true
+  script:
+    - /run.sh analyze .
+  artifacts:
+      paths: [gl-license-management-report.json]
+  dependencies: []
+  only:
+    refs:
+      - branches
+    variables:
+      - $GITLAB_FEATURES =~ /\blicense_management\b/
+  except:
+    variables:
+      - $LICENSE_MANAGEMENT_DISABLED
+
+sast:
+  stage: test
+  allow_failure: true
+  artifacts:
+      paths: [gl-sast-report.json]
+  only:
+    refs:
+      - branches
+    variables:
+      - $GITLAB_FEATURES =~ /\bsast\b/
+  image: docker:stable
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  services:
+    - docker:stable-dind
+  script:
+    - export SAST_VERSION=${SP_VERSION:-$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')}
+    - |
+      if ! docker info &>/dev/null; then
+        if [ -z "$DOCKER_HOST" -a "$KUBERNETES_PORT" ]; then
+          export DOCKER_HOST='tcp://localhost:2375'
+        fi
+      fi
+    - |
+      printenv | grep -E '^(DOCKER_|CI|GITLAB_|FF_|HOME|PWD|OLDPWD|PATH|SHLVL|HOSTNAME)' | cut -d'=' -f1 | \
+        (while IFS='\\n' read -r VAR; do unset -v "$VAR"; done; /bin/printenv > .env)
+    - |
+      docker run \
+        --env-file .env \
+        --volume "$PWD:/code" \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        "registry.gitlab.com/gitlab-org/security-products/sast:$SAST_VERSION" /app/bin/run /code
+  except:
+    variables:
+      - $SAST_DISABLED
+      - $SAST_DISABLE_DIND == 'true'
+
+.sast-analyzer:
+  extends: sast
+  services: []
+  except:
+    variables:
+      - $SAST_DISABLE_DIND == 'false'
+  script:
+    - /analyzer run
+    
+eslint-sast:
+  extends: .sast-analyzer
+  image:
+    name: "$SAST_ANALYZER_IMAGE_PREFIX/eslint:$SAST_ANALYZER_IMAGE_TAG"
+  only:
+    variables:
+      - $GITLAB_FEATURES =~ /\bsast\b/ &&
+          $SAST_DEFAULT_ANALYZERS =~ /eslint/ &&
+          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /javascript/
+
+secrets-sast:
+  extends: .sast-analyzer
+  image:
+    name: "$SAST_ANALYZER_IMAGE_PREFIX/secrets:$SAST_ANALYZER_IMAGE_TAG"
+  only:
+    variables:
+      - $GITLAB_FEATURES =~ /\bsast\b/ &&
+          $SAST_DEFAULT_ANALYZERS =~ /secrets/
