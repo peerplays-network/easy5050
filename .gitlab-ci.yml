@@ -8,8 +8,6 @@ variables:
   SAST_DISABLE_DIND: "true"
   SCAN_KUBERNETES_MANIFESTS: "false"
 
-image: node:12.2.0
-
 stages:
   - test
 
@@ -21,6 +19,7 @@ before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 build:
+  image: node:12.2.0
   stage: test
   script:
     - npm install
