@@ -1,6 +1,6 @@
 export default {
     BTC: 1,
-    CAD: 10082,
-    USD: 7675,
+    CAD: 1,
+    USD: 1,
     PPY: 1,
 };

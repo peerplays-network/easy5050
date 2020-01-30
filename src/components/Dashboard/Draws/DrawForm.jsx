@@ -222,7 +222,7 @@ class DrawForm extends React.Component {
                     <Translate content="creating_lottery.create_draw" />
                   </button>
                   {this.state.balanceError ?
-                    <span className="error__hint balance-error" id="error_submitError">{`Insufficient Funds! ${displayInsufficientBalance} PPY is needed`}</span>
+                    <span className="error__hint balance-error" id="error_submitError">{`Insufficient Funds! ${displayInsufficientBalance} USD is needed`}</span>
                       : null 
                     }
                 </div>

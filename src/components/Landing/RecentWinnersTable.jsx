@@ -105,7 +105,7 @@ class RecentWinnersTable extends Component {
                 {this.props.data.slice(0, 5).map((data, index) => {
                     const lottery = lotteriesByHash.get(data.lotteryId);
                     const drawName = JSON.parse(lottery.getIn(['options', 'description'])).lottoName;
-                    const amount = new BigNumber(data.amount).div(Math.pow(10, this.props.precision)).toFixed(10);
+                    const amount = new BigNumber(data.amount).div(Math.pow(10, this.props.precision)).toFixed(2);
 
                     const verificationData = {drawName, blockNum: data.blockNum, winner: data.winner, id: data.lotteryId};
                     return (

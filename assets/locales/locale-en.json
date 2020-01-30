@@ -8,7 +8,7 @@
     "support-favourite":"SUPPORT YOUR FAVOURITE 50/50 DRAWS FOR CHANCES TO",
     "split-jackpots":"SPLIT JACKPOTS WITH CHARITIES AND SUPPORT GREAT CAUSES",
     "current-total":"CURRENT TOTAL OF 50/50 JACKPOTS",
-    "btc":"BTC",
+    "btc":"USD",
     "recently-created":"RECENTLY CREATED 50",
     "recently-created-draws":"/50 DRAWS",
     "drawname":"Draw Name",
@@ -63,7 +63,7 @@
     "note_2": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:",
     "note_3": "The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.",
     "note_4": "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
-    "sharedrop_note": "For all other PPY balance claims, <br/> Sign up and then go to Settings/Balance Claims",
+    "sharedrop_note": "For all other BTC balance claims, <br/> Sign up and then go to Settings/Balance Claims",
     "date_format": "MMM DD, YYYY"
   },
   "navigation": {
@@ -198,14 +198,14 @@
     "login_key_placeholder": "Paste your BitShares private key",
     "title": "PEERPLAYS UIA and BTS Sharedrop Balance Claims",
     "note_title_1": "PEERPLAYS UIA HOLDERS:",
-    "note_1": "If you held PEERPLAYS UIA tokens in your BitShares wallet on or after 4:00 UTC on December 26, 2016, enter your BitShares private owner key below to claim your PPY balance.",
+    "note_1": "If you held PEERPLAYS UIA tokens in your BitShares wallet on or after 4:00 UTC on December 26, 2016, enter your BitShares private owner key below to claim your BTC balance.",
     "note_title_2": "BTS SHAREDROP:",
-    "note_2": "If you held BTS tokens in your BitShares wallet on September 2, 2016 at 16:37 UTC (BitShares block number 9,291,600), enter your BitShares private owner key below to claim your PPY balance.",
+    "note_2": "If you held BTS tokens in your BitShares wallet on September 2, 2016 at 16:37 UTC (BitShares block number 9,291,600), enter your BitShares private owner key below to claim your BTC balance.",
     "note_title_3": "OTHER REDEMPTIONS:",
-    "note_3": "For all other PPY token redemptions, please \"sign up\" below, and then go to settings/balance claims and enter your redemption key."
+    "note_3": "For all other BTC token redemptions, please \"sign up\" below, and then go to settings/balance claims and enter your redemption key."
   },
   "creating_lottery": {
-    "ticket_price": "Ticket Price (PPY):",
+    "ticket_price": "Ticket Price (USD):",
     "resolution_conditions": "Resolution Conditions:",
     "draw_resolution": "Draw Resolution",
     "draw_resolution_date_time": "Draw Resolution Date and Time:",

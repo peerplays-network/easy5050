@@ -44,7 +44,7 @@ class HistoryRowData extends React.Component { // This class contains the row da
         <td className="td" id="tableCustom">
             <span className="td__cell" id="strongText">
                 { formattedType } - <Tooltip position="right" title={symbol}> {symbol} </Tooltip> { type === 0 ? '':
-                type === 79 ? ' - ' + Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(precision)) :
+                type === 79 ? ' - ' + Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(2)) :
                 type === 5 ? '-' :
                 type === 80 ? ' - ' + counterpart.translate('history.lottery_end_desc')
                 :
@@ -55,7 +55,7 @@ class HistoryRowData extends React.Component { // This class contains the row da
                     type === 0 ?
                     '':
                     type === 78 ?
-                    ' @ ' + Helper.currencyConvert(new BigNumber(assetPrice || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(precision)) + '':
+                    ' @ ' + Helper.currencyConvert(new BigNumber(assetPrice || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(2)) + '':
                     type === 5 ? 0 :
                     ''
                 } 
@@ -72,9 +72,9 @@ class HistoryRowData extends React.Component { // This class contains the row da
         </td>
         <td className="td" id="tableCustom">
             <span className="td__cell">
-            {type === 78 ? Helper.currencyConvert((new BigNumber(assetPrice || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(precision)) * (tickets_to_buy)) : 
-            type === 79 ? Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(precision)) :
-            type === 0 ? Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(precision)) :
+            {type === 78 ? Helper.currencyConvert((new BigNumber(assetPrice || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(2)) * (tickets_to_buy)) : 
+            type === 79 ? Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(2)) :
+            type === 0 ? Helper.currencyConvert(new BigNumber(amount.amount || 0).dividedBy(Math.pow(10, precision)).toNumber().toFixed(2)) :
             type === 10 ? '-' :
              '-'}
             </span>

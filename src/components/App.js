@@ -16,6 +16,7 @@ import TermsContainer from './Dashboard/Terms/TermsContainer';
 import Modals from 'components/Modals/ModalsContainer';
 import Notifications from './Dashboard/Dashboard/Notifications';
 import FAQ from './Dashboard/FAQ/FAQContainer';
+import StorageService from '../services/StorageService';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class App extends React.Component {
   componentWillMount() {
     //console.log("notifyChecks");
     //console.log(this.notifyChecks);
+    const rates = {usd: 1, cad: 1, ppy: 1};
+    StorageService.set('rates', rates);
     this.unsubscribeFromHistory = this.props.history.listen(location => {
       this.props.dispatch(ModalActions.hideAll());
       this.props.dispatch(AsideActions.hideAside());

@@ -24,7 +24,7 @@ class AssetAmount extends React.Component {
 		let {amount} = this.props;
 		if(!asset)
 			return null;
-		return new BigNumber(amount).div(Math.pow(10, 9)).toNumber().toFixed(10);
+		return new BigNumber(amount).div(Math.pow(10, 9)).toNumber().toFixed(2);
 	}
 	
 }

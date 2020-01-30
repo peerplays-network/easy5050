@@ -173,7 +173,6 @@ class DrawDetails extends React.Component {
   }
 
   addMantissaZeros(num) {
-
     let zeros = -Math.floor( Math.log(num) / Math.log(10) + 1);
     if(zeros < 8 && zeros > 0) {
       return "0".repeat(zeros)
@@ -201,13 +200,24 @@ class DrawDetails extends React.Component {
     return onlyNums;
 }
 
+getLastDigit = (num)=>{
+  if(num) {
+    return (num.toString().slice(-1) === "0");
+  }
+
+  return false;
+};
+
   displayPriceFeature = (number, mantissa, jackpot, units) => {
+    let usdJackpot = jackpot.toFixed(2);
+
     return (<span className="pricefeature-dd" >
               <Odometer value={number} duration={ 3000 } format="d"/>
-              {jackpot !== 0 ? <React.Fragment>
+              {usdJackpot !== 0 ? <React.Fragment>
                 <span className="" style={{verticalAlign: "middle"}}>.</span>
-                <span>{this.addMantissaZeros(jackpot)}</span>
+                <span>{this.addMantissaZeros(usdJackpot)}</span>
                 <Odometer value={mantissa} duration={ 3000 } format="d"/>
+                {this.getLastDigit(usdJackpot) ? <span>0</span> : null}
               </React.Fragment> : null}
               <span style={{color: "#edcb61",marginLeft: "10px","verticalAlign": "-2px"}}>{units}</span>
             </span>
@@ -265,7 +275,7 @@ class DrawDetails extends React.Component {
             ticketsPrice =
             lotteryObject.getIn(['lottery_options', 'ticket_price', 'amount']);
             
-            ticketsPrice = Number(ticketsPrice/(Math.pow(10, this.props.precision)).toFixed(this.props.precision))
+            ticketsPrice = Number(ticketsPrice/(Math.pow(10, this.props.precision)).toFixed(2))
 
             if (lotteryObject.getIn(['options', 'description'])) { // Check for null first, because that will crash the app
                 drawName = lotteryObject.getIn(['options', 'description']) == 'desc' || !Helper.IsJsonString(lotteryObject.getIn(['options', 'description'])) || lotteryObject.getIn(['options', 'description']) == '' ? drawName = lotteryObject.get('symbol') : drawName = JSON.parse(lotteryObject.getIn(['options', 'description'])).lottoName;

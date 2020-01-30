@@ -121,7 +121,7 @@ const SweepsAside = ({
                             className="aside__sectionLabel"
                         />
                         <div className="aside__sectionLabeled">
-                            { ticketPrice } PPY
+                            { ticketPrice } USD
                         </div>
                     </div>
                     <div className="aside__sectionRow">
@@ -209,7 +209,7 @@ const SweepsAside = ({
                     />
                     <div className="aside__sectionRow">
                         <div className="aside__sectionLabel">
-                            { jackPot } PPY
+                            { jackPot } USD
                         </div>
                         <div className="aside__sectionLabeled"/>
                     </div>

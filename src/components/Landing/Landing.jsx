@@ -393,7 +393,7 @@ class Landing extends React.Component {
 
     getPrecision(amount) {
       //get precision from blockchain and apply
-      return Number(new BigNumber(amount).div(Math.pow(10, this.props.precision)).toFixed(this.props.precision))
+      return Number(new BigNumber(amount).div(Math.pow(10, this.props.precision)).toFixed(2))
     }
 
     render() {

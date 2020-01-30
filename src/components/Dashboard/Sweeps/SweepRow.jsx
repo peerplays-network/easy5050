@@ -87,7 +87,7 @@ class SweepRow extends React.Component {
     assetId && assetsByHash !== undefined ? assetsByHash.get(assetId) : '';
         const ticketsPrice =
     amount
-      ? (new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10))
+      ? (new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(2))
       : 0;
         const ticketsTotal =
     lottoFromHash &&
@@ -101,7 +101,7 @@ class SweepRow extends React.Component {
           jackpot = ticketsPrice * lottoFromHash.getIn(['dynamic', 'current_supply']) * 0.5;
       }
         jackpot = Helper.currencyConvert(jackpot);
-        const ticketPrice = Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10));
+        const ticketPrice = Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(2));
         const endingOnSoldout =
     lottoFromHash &&
     lottoFromHash.getIn(['lottery_options', 'ending_on_soldout']) !== undefined

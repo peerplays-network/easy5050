@@ -317,7 +317,7 @@ class Info extends React.Component {
 
       <Tooltip
         // options
-        title="The price per ticket in PPY that users will have to pay"
+        title="The price per ticket in USD that users will have to pay"
         position="right"
         arrow="true"
       >
@@ -577,7 +577,7 @@ class Info extends React.Component {
       return previousValue;
     }
     if (decimalCount[1]) {
-      if (decimalCount[1].length > 5) {
+      if (decimalCount[1].length > 2) {
         return previousValue;
       }
     }

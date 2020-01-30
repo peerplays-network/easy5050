@@ -15,7 +15,7 @@ export default class ChainService {
             }).then((data) => {
                 usdRate = data.USD.last;
                 cadRate = data.CAD.last;
-                rates = {usd: usdRate, cad: cadRate};
+                rates = {usd: 1, cad: 1};
                 StorageService.set('rates', rates);
                 resolve(rates);
             });

@@ -7,7 +7,6 @@ import React from 'react'
 class Helper {
 
     static currencyConvert(val) { // returns a string
-
         const convertTo = StorageService.get('currency');
         let rates = {usd: constants.USD, cad: constants.CAD};
 
@@ -16,21 +15,7 @@ class Helper {
         }
 
         let valToDisplay = val;
-
-        switch (convertTo) {
-        case 'BTC':
-            valToDisplay = `₿${ this.roundBTC(valToDisplay * constants.BTC) }`;
-            break;
-        case 'CAD':
-            valToDisplay = `$${ this.roundDollars(valToDisplay * rates.cad)} CAD`;
-            break;
-        case 'USD':
             valToDisplay = `$${ this.roundDollars(valToDisplay * rates.usd)} USD`;
-            break;
-        case 'PPY':
-            valToDisplay = `${ this.roundPPY(valToDisplay * constants.PPY) } PPY`;
-            break;
-        }
         // console.warn(`valtoDisplay: ${valToDisplay}`);
         return valToDisplay;
 
@@ -46,21 +31,8 @@ class Helper {
         }
 
         let valToDisplay = val;
-
-        switch (convertTo) {
-        case 'BTC':
-            valToDisplay = this.roundBTC(valToDisplay*constants.BTC);
-            break;
-        case 'CAD':
-            valToDisplay = this.roundDollars(valToDisplay * rates.cad);
-            break;
-        case 'USD':
-            valToDisplay = this.roundDollars(valToDisplay * rates.usd);
-            break;
-        case 'PPY':
             valToDisplay = this.roundPPY(valToDisplay*constants.PPY);
-            break;
-        }
+
         return valToDisplay;
     }
 
@@ -74,21 +46,7 @@ class Helper {
         }
 
         let valToDisplay = val;
-
-        switch (convertTo) {
-        case 'BTC':
-            valToDisplay = (<span>{this.roundBTC(valToDisplay * constants.BTC) }<span className="yellow-landing"> BTC</span></span>);
-            break;
-        case 'CAD':
-            valToDisplay = (<span>{this.roundDollars(valToDisplay * rates.cad)}<span className="yellow-landing"> CAD</span></span>);
-            break;
-        case 'USD':
             valToDisplay = (<span>{this.roundDollars(valToDisplay * rates.usd)}<span className="yellow-landing"> USD</span></span>);
-            break;
-        case 'PPY':
-            valToDisplay = (<span>{this.roundPPY(valToDisplay * constants.PPY) }<span className="yellow-landing"> PPY</span></span>);
-            break;
-        }
         // console.warn(`valtoDisplay: ${valToDisplay}`);
         return valToDisplay;
 
@@ -96,7 +54,7 @@ class Helper {
 
     static getUnits() {
 
-        const convertTo = StorageService.get('currency') || 'BTC';
+        const convertTo = 'USD';
         return convertTo;
     }
 

@@ -5,7 +5,7 @@ export default () => (
     <div className="logo__box black">
         <div className="container text-center">
             <Link to="/sign-in" className="align-items-center black">
-                <img className="easy5050" src="/images/Easy5050.png" alt="" />
+                <img className="easy5050" src="/images/marine-corps-nh.png" alt="" />
           </Link>
       </div>
   </div>

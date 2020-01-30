@@ -65,7 +65,7 @@ const defaultState = {
     showCantConnectModal: false,
 
     // Select currency
-    selectedCurrency: 'BTC',
+    selectedCurrency: 'USD',
 
     // ex rate
     exchangeRates: 1,
