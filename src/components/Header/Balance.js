@@ -84,7 +84,7 @@ export default class Balance extends Component {
               >
                 <span className="d-flex justify-content-between">
                 <span className="ppy-symbol-style">USD</span>
-                <span className="balance-style">{this.props.balance}</span>
+                <span className="balance-style">{this.props.balance.toFixed(2)}</span>
               </span>
               </Tooltip>
             </div>
