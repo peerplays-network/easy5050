@@ -93,7 +93,6 @@ class BuyTicketsAsideActions {
             return LotteryRepository.buyLotteryTickets(operationParams, state.app.keys);
 
         }
-
     }
 
     static setTicketAmountPurchased(amount) {

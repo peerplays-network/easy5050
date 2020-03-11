@@ -317,7 +317,7 @@ class Info extends React.Component {
 
       <Tooltip
         // options
-        title="The price per ticket in BTC that users will have to pay"
+        title="The price per ticket in PPY that users will have to pay"
         position="right"
         arrow="true"
       >
@@ -555,6 +555,10 @@ class Info extends React.Component {
       return previousValue;
     }
 
+    if (value < 1) {
+      return;
+    }
+
     const onlyNums = value.replace(/[^\d]/g, '');
     if (onlyNums.length <= 3) {
       return onlyNums;
@@ -578,7 +582,7 @@ class Info extends React.Component {
       }
     }
 
-    if (value > 10) {
+    if (value > 10000) {
       return previousValue
     }
 
@@ -677,6 +681,7 @@ class Info extends React.Component {
                 component={this.totalTickets}
                 label="creating_lottery.total_tickets"
                 placeholder="creating_lottery.enter_total_tickets"
+                type="number"
                 normalize={this.normalizeTicketField}
               />
             </div>

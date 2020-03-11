@@ -63,6 +63,13 @@ function setAppCoreAssetAction(Asset) {
     coreAsset: Asset
   };
 }
+
+function setLotteryCreationFeeAction(fee) {
+  return {
+    type: ActionTypes.APP_SET_LOTTERY_CREATION_FEE,
+    lotteryCreationFee: fee
+  };
+}
 /**
  * Private Redux Action Creator (ActionTypes.APP_SET_SYNC_FAIL)
  *
@@ -157,10 +164,9 @@ function logoutAction() {
 class AppActions {
   static init() {
     return (dispatch, getState) => {
-      ChainConfig.setPrefix("TEST");
-      ChainStore.getObject("1.3.0");
+      ChainConfig.setPrefix(CONFIG.CORE_ASSET);
+      ChainStore.getObject(CONFIG.CORE_ASSET_ID);
       ChainStore.setDispatchFrequency(0);
-
       Apis.instance(CONFIG.BLOCKCHAIN_URL, true).init_promise.then(res => {
         try {
           const db = iDB.init_instance(
@@ -185,6 +191,11 @@ class AppActions {
                       )
                         .then(asset => {
                           dispatch(AppActions.setAppCoreAsset(asset));
+                          return AccountChainRepository.getObject('2.0.0');
+                        }).then((fees) => {
+                          const currentFees = fees.toJS().parameters.current_fees.parameters[77];
+                          const lotteryCreateFee = currentFees ? currentFees[1].lottery_asset : 2000000;
+                          dispatch(AppActions.setLotteryCreationFee(lotteryCreateFee));
                           success();
                         })
                         .catch(fail);
@@ -275,7 +286,6 @@ class AppActions {
     return (dispatch, getState) => {
       let history = account.get("history");
       account = account.remove("history");
-
       let balance = AccountChainRepository.getAccountBalance(account);
       dispatch(AppActions.setDisplayedBalance(balance))
       console.warn("getting balance . . .: " + balance);
@@ -360,6 +370,16 @@ class AppActions {
     return dispatch => {
       dispatch(setAppCoreAssetAction(asset));
     };
+  }
+
+  /**
+   * @param fee string
+   * @returns {Function}
+   */
+  static setLotteryCreationFee(fee) {
+    return dispatch => { 
+      dispatch(setLotteryCreationFeeAction(fee));
+    }
   }
 
   /**

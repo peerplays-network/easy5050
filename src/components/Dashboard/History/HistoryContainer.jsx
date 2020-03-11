@@ -115,6 +115,9 @@ import Translate from 'react-translate-component';
               a = a.toString().replace('asset_create', 'new draw');
               b = b.toString().replace('asset_create', 'new draw');
 
+              a = Helper.replaceLotteryTypes(a);
+              b = Helper.replaceLotteryTypes(b);
+
               return direction === 'asc' ? (a >= b ? 1 : -1) : a >= b ? -1 : 1;
           }
 

@@ -63,6 +63,7 @@ class HistoryRow extends React.Component {
       <HistoryRowData
       data = {this.props.tx}
       blockTime = {this.props.blockTime}
+      precision = {this.props.precision}
       />
     )
   }

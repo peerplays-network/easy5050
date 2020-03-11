@@ -6,5 +6,5 @@ export default {
     },
     TICKETS_AMOUNT: 5,
     GRAPHENE_1_PERCENT: 100,
-    REQUIRED_FIELDS: ['description', 'tickets', 'resolution', 'date', 'price', 'benefactorname', 'benefactorid']
+    REQUIRED_FIELDS: ['description', 'tickets', 'resolution', 'date', 'time', 'price', 'benefactorname', 'benefactorid']
 };
