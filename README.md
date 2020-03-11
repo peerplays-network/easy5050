@@ -1,10 +1,10 @@
-#  5050Labs
+#  easy5050
 
   
 
 ##  Installation
 
-1.  Install Node 8.16.1
+1.  Install Node 12.x.x
 
 2.  Install Python 2.7.2
 
@@ -17,6 +17,6 @@
 
 ##  Build and Launch
 
-1.  Build the app using `npm run-script build` or `npm run-script build-dev` (Windows)
+1.  Build the app using `npm run build`.
 
-2.  Once built, the app can be started with `npm run-script start`, which will serve the application on port 8080.
+2.  Once built, the app can be started with `npm run start`, which will serve the application on port 8080.
