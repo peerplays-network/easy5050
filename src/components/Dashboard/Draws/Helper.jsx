@@ -8,7 +8,7 @@ class Helper {
 
     static currencyConvert(val) { // returns a string
 
-        const convertTo = StorageService.get('currency') || 'BTC';
+        const convertTo = StorageService.get('currency');
         let rates = {usd: constants.USD, cad: constants.CAD};
 
         if (StorageService.get('rates').cad && StorageService.get('rates').usd) {
@@ -125,6 +125,19 @@ class Helper {
         for (let i = 0; i < 16; i++) { text += possible.charAt(Math.floor(Math.random() * possible.length)); }
 
         return text;
+    }
+
+    static replaceLotteryTypes(name) {
+        name = name.toString();
+        if (name.indexOf('lottery_end') > -1) {
+            return 'end_of_lottery' + name.split('lottery_end').join("")
+        } else if(name.indexOf('lottery_new') > -1) {
+            return 'new_draw' + name.split('lottery_new').join("")
+        } else if(name.indexOf('lottery_reward') > -1) {
+            return 'lottery_winnings' + name.split('lottery_reward').join("")
+        } else {
+            return name
+        }
     }
 
     static IsJsonString(str) {

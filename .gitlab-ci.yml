@@ -1,27 +1,19 @@
-build_dev:
-  stage: build
-  script:
-    - cd /var/www/Projects/628.sweeps/web-app
-    - git pull
-    - npm i
-    - npm run build-dev-server
-  only:
-    - development
-  environment:
-    name: development
-  tags:
-    - dev@s.pixelplex.by
+image: node:8.16.1
 
-build_stage:
-  stage: build
+stages:
+  - test
+
+before_script: 
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+build:
+  stage: test
   script:
-    - cd /home/jonathan/web-app
-    - git pull
-    - npm i
-    - npm run build-stage-server
-  only:
-    - stage
-  environment:
-    name: stage
+    - npm install
+    - npm run-script build
   tags:
-    - jonathan@sweeps
+    - docker

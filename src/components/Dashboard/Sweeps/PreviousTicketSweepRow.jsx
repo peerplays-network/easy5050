@@ -76,7 +76,7 @@ const PreviousTicketSweepRow = ({
     assetId && assetsByHash !== undefined ? assetsByHash.get(assetId) : '';
   const ticketsPrice =
     amount && asset
-      ? new BigNumber(amount).div(Math.pow(10, 9)).toFixed(10)
+      ? new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10)
       : 0;
   const ticketsTotal =
     lottoFromHash &&
@@ -157,7 +157,7 @@ const PreviousTicketSweepRow = ({
         {formattedTime}
       </td>
       <td id="tableCustom" className="td">
-        {Helper.currencyConvert(Number(new BigNumber(amount).div(Math.pow(10, 9)).toFixed(10)))}
+        {Helper.currencyConvert(Number(new BigNumber(amount).div(Math.pow(10, coreAssetPrecision)).toFixed(10)))}
       </td>
       <td id="tableCustom" className="td">
         <span className="td__cell">{Helper.currencyConvert(jackpot)}</span>

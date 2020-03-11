@@ -25,7 +25,7 @@ import Balance from './Balance';
 
 import Pagination from 'components/elements/Pagination/PaginationContainer';
 
-import imgLogo from '../../../assets/images/5050Logo-70.png';
+import imgLogo from '../../../assets/images/Easy5050.png';
 
 function mapStateToProps(state) {
   return {
@@ -34,6 +34,7 @@ function mapStateToProps(state) {
     fullLocation: state.router.location.pathname,
     userName: state.app.account.get('name'),
     balance: state.app.balance,
+    precision: state.app.coreAsset.get('precision'),
     state
   };
 }
@@ -221,6 +222,7 @@ class Header extends React.Component {
       setActiveDraws,
       userName,
       balance,
+      precision,
       dateFilterEnd,
       dateFilterStart,
       textFilter,
@@ -231,7 +233,7 @@ class Header extends React.Component {
 
     let userBalance =
       this.state.balance >= 0
-        ? new BigNumber(this.state.balance).div(Math.pow(10, 9)).toFixed(9)
+        ? new BigNumber(this.state.balance)/(Math.pow(10, precision))
         : 0;
 
     return (
@@ -243,7 +245,7 @@ class Header extends React.Component {
           >
             <div className="logo col-md-3">
               <Link to="/home">
-                <img src={imgLogo} />
+                <img className="easy5050" src={imgLogo} />
               </Link>
             </div>
             <div className="col-md-2 offset-md-7 d-flex flex-column">
