@@ -317,7 +317,7 @@ class Info extends React.Component {
 
       <Tooltip
         // options
-        title="The price per ticket in USD that users will have to pay"
+        title="The price per ticket in CAD that users will have to pay"
         position="right"
         arrow="true"
       >

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Translate from 'react-translate-component';
 import { NavLink } from 'react-router-dom';
-import imgLogo from '../../../../assets/images/marine-corps-nh.png';
+import imgLogo from '../../../../assets/images/canada_games_logo.png';
 import NavLinkText from './NavLinkText';
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';

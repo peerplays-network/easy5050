@@ -8,7 +8,7 @@
     "support-favourite":"SUPPORT YOUR FAVOURITE 50/50 DRAWS FOR CHANCES TO",
     "split-jackpots":"SPLIT JACKPOTS WITH CHARITIES AND SUPPORT GREAT CAUSES",
     "current-total":"CURRENT TOTAL OF 50/50 JACKPOTS",
-    "btc":"USD",
+    "btc":"CAD",
     "recently-created":"RECENTLY CREATED 50",
     "recently-created-draws":"/50 DRAWS",
     "drawname":"Draw Name",
@@ -205,7 +205,7 @@
     "note_3": "For all other BTC token redemptions, please \"sign up\" below, and then go to settings/balance claims and enter your redemption key."
   },
   "creating_lottery": {
-    "ticket_price": "Ticket Price (USD):",
+    "ticket_price": "Ticket Price (CAD):",
     "resolution_conditions": "Resolution Conditions:",
     "draw_resolution": "Draw Resolution",
     "draw_resolution_date_time": "Draw Resolution Date and Time:",

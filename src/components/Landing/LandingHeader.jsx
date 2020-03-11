@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import imgLogo from '../../../assets/images/marine-corps-nh.png';
+import imgLogo from '../../../assets/images/canada_games_logo.png';
 import LogInPage from '../Auth/LogInPage';
 import { NavLink } from 'react-router-dom';
 import SlidingMenu from '../elements/Pagination/SlidingMenu';

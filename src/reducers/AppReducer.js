@@ -65,7 +65,7 @@ const defaultState = {
     showCantConnectModal: false,
 
     // Select currency
-    selectedCurrency: 'USD',
+    selectedCurrency: 'CAD',
 
     // ex rate
     exchangeRates: 1,

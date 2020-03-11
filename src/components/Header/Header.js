@@ -25,7 +25,7 @@ import Balance from './Balance';
 
 import Pagination from 'components/elements/Pagination/PaginationContainer';
 
-import imgLogo from '../../../assets/images/marine-corps-nh.png';
+import imgLogo from '../../../assets/images/canada_games_logo.png';
 
 function mapStateToProps(state) {
   return {

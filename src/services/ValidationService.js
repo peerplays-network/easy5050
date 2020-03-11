@@ -82,7 +82,7 @@ export default class ValidationService {
             error: !isValid ?
             price_number :
                     !isMinimalValid ?
-                        `${price_min} ${ new BigNumber(1).dividedBy(`1e${ constants.MINIMAL_PRECISION }`).toNumber() } USD` :
+                        `${price_min} ${ new BigNumber(1).dividedBy(`1e${ constants.MINIMAL_PRECISION }`).toNumber() } CAD` :
                     !isMaximalValid ?
                         `${price_max} ${ constants.MAX_TICKET_PRICE }` :
                     null

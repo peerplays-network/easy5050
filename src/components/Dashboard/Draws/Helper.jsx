@@ -15,7 +15,7 @@ class Helper {
         }
 
         let valToDisplay = val;
-            valToDisplay = `$${ this.roundDollars(valToDisplay * rates.usd)} USD`;
+            valToDisplay = `$${ this.roundDollars(valToDisplay * rates.usd)} CAD`;
         // console.warn(`valtoDisplay: ${valToDisplay}`);
         return valToDisplay;
 
@@ -46,7 +46,7 @@ class Helper {
         }
 
         let valToDisplay = val;
-            valToDisplay = (<span>{this.roundDollars(valToDisplay * rates.usd)}<span className="yellow-landing"> USD</span></span>);
+            valToDisplay = (<span>{this.roundDollars(valToDisplay * rates.usd)}<span className="yellow-landing"> CAD</span></span>);
         // console.warn(`valtoDisplay: ${valToDisplay}`);
         return valToDisplay;
 
@@ -54,7 +54,7 @@ class Helper {
 
     static getUnits() {
 
-        const convertTo = 'USD';
+        const convertTo = 'CAD';
         return convertTo;
     }
 
