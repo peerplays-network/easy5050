@@ -47,7 +47,7 @@ class LandingHeader extends React.Component {
             <div className="header-landing filters">
             <div className="container padding-zero">
               <div className="row m-0">
-                <div className="col-md-5 d-flex justify-content-left margin-zero">
+                <div className="col-md-5 d-flex justify-content-left padding-10">
                 <div className="logo col-md-3">
                 <NavLink to={`/home`} activeClassName="active">
                 <img className="easy5050" src={imgLogo} />

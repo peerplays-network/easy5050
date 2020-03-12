@@ -25,7 +25,6 @@ class HistoryRowData extends React.Component { // This class contains the row da
     const dateformat = counterpart("sign_in.date_format");
 
     let symbol = this.props.data[1].symbol;
-
     if (common_options && Helper.IsJsonString(common_options.description)) { 
        symbol = JSON.parse(common_options.description).lottoName;
       } 
@@ -35,9 +34,8 @@ class HistoryRowData extends React.Component { // This class contains the row da
     console.log('%c History Rendered', 'background: #222; color: #fff');
     let type = this.props.data[0];
     let precision = this.props.precision;
-
     if (symbol == 'BTC') {
-        symbol = StorageService.get('currency');
+        symbol = 'CAD';
     }
     return (
         <tr className="tr" id="tableCustom">

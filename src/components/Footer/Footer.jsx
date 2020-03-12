@@ -12,8 +12,8 @@ class Footer extends Component {
 
                     <div className="centered-footer">
 
-                      <p>Peerplays is the first decentralized global betting platform, disrupting the global gaming industry with a new paradigm of fairness, transparency, speed, and security. <br />
-    Peerplays removes the need for third-party betting operators, using Graphene technology and Gamified Proof of Stake (GPoS) to provide the fastest, most decentralized blockchain consensus model available today.</p>
+                      <p>The Peerplays blockchain provides a trustless layer that interconnects games and gamers across a high capacity blockchain fabric, incorporating gamification from user experience all the way up to governance of the decentralized blockchain. <br />
+                      Using Graphene technology and Gamified Proof of Stake (GPoS) to provide the fastest, most decentralized blockchain consensus model available today.</p>
 
                       <p> 47 Lockheed Crescent, Debert, NS, B0M 1G0, Tel: 1-902-707-0277 </p> <a className="socialIcon-footer" href="https://www.peerplays.com/" target="_blank">https://www.peerplays.com/</a>
 
